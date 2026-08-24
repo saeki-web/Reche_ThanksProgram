@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re:cheサンクスプログラム 実施のご報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent-1: #f7a8c8;
+    --accent-2: #c9aef2;
+    --accent-3: #a7d3f7;
+    --accent-4: #ffc9a3;
+    --accent-grad: linear-gradient(120deg, var(--accent-1), var(--accent-2) 55%, var(--accent-3));
+    --ink: #333333;
+    --ink-soft: #6b7280;
+    --divider: #c9d0d7;
+    --footer-bg: #aab7c2;
+    --card: #ffffff;
+    --line: rgba(51,51,51,0.10);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{ background:#ffffff; font-family:"Noto Sans JP", sans-serif; color:var(--ink);}
+
+  .page{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    padding: 32px 56px 22px;
+    border-bottom: 3px solid var(--divider);
+    position:relative;
+  }
+  .header::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-3px; height:3px;
+    background: var(--accent-grad);
+    opacity:.9;
+  }
+  .proj-label{
+    display:inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color:#fff;
+    background: var(--accent-grad);
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .doc-title{
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height:1.4;
+  }
+  .doc-sub{
+    margin-top:8px;
+    font-size:13px; font-weight:500; color:var(--ink-soft);
+  }
+  .doc-sub b{ color:var(--ink); font-weight:700; }
+
+  .brand{ text-align:right; }
+  .brand-row{ display:flex; align-items:center; gap:10px; justify-content:flex-end; }
+  .brand-mark{ width:34px; height:34px; }
+  .brand-word{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px; font-weight:600; color:#2c2c2c; letter-spacing:0.01em;
+  }
+  .brand-tag{
+    margin-top:4px; font-size:11.5px; font-weight:700; color:#3a3a3a;
+    letter-spacing:.02em;
+  }
+
+  /* ---------- Body ---------- */
+  .body{
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 30%, #eef8fb 100%);
+    padding: 48px 56px 60px;
+    min-height: 900px;
+    position:relative;
+    overflow:hidden;
+  }
+  .body::before{
+    content:"";
+    position:absolute; top:-120px; right:-120px; width:420px; height:420px;
+    background: radial-gradient(circle, var(--accent-3) 0%, transparent 70%);
+    opacity:.35; filter: blur(10px);
+    pointer-events:none;
+  }
+  .body::after{
+    content:"";
+    position:absolute; bottom:-140px; left:-100px; width:380px; height:380px;
+    background: radial-gradient(circle, var(--accent-1) 0%, transparent 70%);
+    opacity:.28; filter: blur(10px);
+    pointer-events:none;
+  }
+
+  .greeting{
+    position:relative;
+    background:#fff;
+    border: 1px solid var(--line);
+    border-left: 4px solid transparent;
+    border-image: var(--accent-grad) 1;
+    border-radius: 2px;
+    padding: 22px 28px;
+    font-size: 14.5px;
+    line-height: 2;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 24px -18px rgba(40,40,60,0.25);
+  }
+
+  .section{ margin-bottom: 32px; position:relative; }
+  .section-head{
+    display:flex; align-items:center; gap:14px;
+    margin-bottom: 16px;
+  }
+  .section-mark{
+    font-size: 13px; font-weight:700; letter-spacing:.06em;
+    color: #fff;
+    background: var(--accent-grad);
+    padding: 5px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .section-title{ font-size: 18px; font-weight: 700; }
+
+  .card{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 26px 30px;
+    box-shadow: 0 10px 26px -20px rgba(40,40,60,0.3);
+  }
+
+  .lead-note{ font-size: 14px; line-height: 1.95; }
+  .lead-note .accent{
+    font-weight:700;
+    background: var(--accent-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .kv{ display:grid; grid-template-columns: 116px 1fr; gap: 14px 20px; font-size: 14.5px; line-height: 1.85; }
+  .kv .k{ font-weight: 700; color:#a24f8f; }
+  .kv .v{ color: var(--ink); }
+  .kv .row{ display:contents; }
+  .kv .row + .row .k, .kv .row + .row .v{ padding-top: 14px; border-top: 1px dashed var(--line); }
+
+  .note-strip{
+    margin-top: 18px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: #f7f8fa;
+    border-left: 3px solid;
+    border-image: var(--accent-grad) 1;
+    padding: 10px 16px;
+    border-radius: 4px;
+    line-height: 1.8;
+  }
+
+  .resp-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .resp-item{
+    background: #fafbfc;
+    border-radius: 10px;
+    padding: 18px 18px;
+    border: 1px solid var(--line);
+    border-top: 3px solid;
+    border-image: var(--accent-grad) 1;
+  }
+  .resp-item .tag{ font-size: 11.5px; font-weight:700; letter-spacing:.06em; color:#a24f8f; margin-bottom:8px; display:block; }
+  .resp-item .name{ font-size: 15px; font-weight:700; margin-bottom:6px; }
+  .resp-item .desc{ font-size: 12.5px; color: var(--ink-soft); line-height:1.7; }
+
+  .timeline{ position:relative; padding-left: 26px; }
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:2px;
+    background: var(--accent-grad); border-radius:2px;
+  }
+  .t-item{ position:relative; padding-bottom: 22px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:""; position:absolute; left:-26px; top:3px; width:12px; height:12px; border-radius:50%;
+    background:#fff; border: 3px solid #c48fd0;
+  }
+  .t-item.done::before{ border-color:#8fbdec; }
+  .t-date{ font-size: 13px; font-weight:700; color:#a24f8f; margin-bottom: 3px; }
+  .t-desc{ font-size: 14px; color: var(--ink); line-height:1.7; }
+  .t-desc .flag{
+    display:inline-block; margin-left:8px; font-size:11px; font-weight:700; color:#a97a2b;
+    background:#fff1d6; padding:1px 8px; border-radius:999px;
+  }
+
+  .closing{
+    margin-top: 40px; font-size: 13.5px; line-height: 2; color: var(--ink-soft);
+    border-top: 1px solid var(--line); padding-top: 22px;
+    display:flex; justify-content:space-between; align-items:flex-end; gap: 20px;
+  }
+  .closing .msg{ max-width: 640px; }
+  .closing .sign{ text-align:right; font-size:13px; color: var(--ink); font-weight:600; white-space:nowrap; }
+
+  /* ---------- Footer ---------- */
+  .footer{
+    background: var(--footer-bg);
+    color:#fff;
+    text-align:right;
+    font-size: 13px;
+    font-weight:700;
+    letter-spacing:.02em;
+    padding: 14px 56px;
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 720px){
+    .header{
+      padding: 22px 20px 18px;
+    }
+    .proj-label{ font-size:11px; padding:3px 11px; margin-bottom:10px;}
+    .doc-title{ font-size: 22px; line-height:1.45; }
+    .doc-sub{ font-size:12px; line-height:1.7; margin-top:6px; }
+
+    .body{ padding: 30px 18px 44px; min-height:0; }
+    .body::before{ width:220px; height:220px; top:-80px; right:-80px; }
+    .body::after{ width:200px; height:200px; bottom:-90px; left:-70px; }
+
+    .greeting{ padding:16px 18px; font-size:13.5px; line-height:1.9; margin-bottom:28px; }
+
+    .section{ margin-bottom:24px; }
+    .section-head{ gap:10px; margin-bottom:12px; }
+    .section-mark{ font-size:11.5px; padding:4px 11px; }
+    .section-title{ font-size:16px; }
+
+    .card{ padding:18px 18px; border-radius:8px; }
+    .lead-note{ font-size:13.5px; line-height:1.85; }
+
+    .kv{ grid-template-columns: 1fr; gap:4px; font-size:13.5px; }
+    .kv .k{ font-size:12px; }
+    .kv .row + .row .k{ padding-top:12px; border-top:1px dashed var(--line); }
+    .kv .row + .row .v{ padding-top:2px; border-top:none; }
+
+    .note-strip{ font-size:12px; padding:9px 13px; }
+
+    .resp-grid{ grid-template-columns: 1fr; gap:12px; }
+    .resp-item{ padding:15px 16px; }
+
+    .timeline{ padding-left:22px; }
+    .t-item::before{ left:-22px; width:10px; height:10px; }
+    .t-date{ font-size:12px; }
+    .t-desc{ font-size:13.5px; }
+    .t-desc .flag{ display:block; margin:6px 0 0; width:fit-content; }
+
+    .closing{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top:30px; padding-top:18px;
+    }
+    .closing .msg{ max-width:none; font-size:12.5px; }
+    .closing .sign{ text-align:left; }
+
+    .footer{ padding:12px 20px; font-size:11px; text-align:center; }
+  }
+
+  @media (max-width: 380px){
+    .doc-title{ font-size: 19px; }
+    .section-title{ font-size:15px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="proj-label">PROJECT&nbsp;&nbsp;/&nbsp;&nbsp;Re:che ThanksProgram</div>
+      <div class="doc-title">Re:che サンクスプログラム<br>実施のご報告</div>
+      <div class="doc-sub">nomama+ 最終課題「Meroneのアセットを活用した売上創出」より　｜　担当：<b>佐伯真由美・池田駿人</b></div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <div class="greeting">
+      皆様おつかれさまです。8月末に1つ施策を実施致しますので、ご認識いただけますと幸いです。<br>
+      必要に応じて各部署の皆様へは別途ご連絡致します。
+    </div>
+
+    <!-- 施策の背景 -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-mark">01</span>
+        <span class="section-title">施策の背景（はじめにお読みください）</span>
+      </div>
+      <div class="card lead-note">
+        私たち佐伯・池田は、現在Meroneの人材育成プログラム「<span class="accent">nomama+</span>」に参加しており、その最終課題として、清水さんより「Meroneのアセットを活用した売上創出（8月末まで）」というテーマをいただいています。<br><br>
+        私たちは2人とも、直近までRe:cheのクローザー（個別相談担当）を務めており、生徒さんへのご案内・面談の経験と体制があります。そこで、その経験を最も活かせる施策として「既存生徒さんからのご紹介キャンペーン」を企画し、清水さんの承認・監修のもと実施する運びとなりました。<br><br>
+        生徒さんへの配信内容・特典設計・コストは、すべて清水さんの事前確認を経ています。
+      </div>
+    </div>
+
+    <!-- 施策概要 -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-mark">02</span>
+        <span class="section-title">施策概要</span>
+      </div>
+      <div class="card">
+        <div class="kv">
+          <div class="row"><div class="k">施策</div><div class="v">Re:che サンクスプログラム</div></div>
+          <div class="row"><div class="k">対象</div><div class="v">既存 Re:che 生徒さん</div></div>
+          <div class="row"><div class="k">期間</div><div class="v">8月24日（月）〜 8月31日（月）　※期間延長の可能性あり</div></div>
+          <div class="row"><div class="k">ツール</div><div class="v">専用公式LINE（新規作成済み。管理者に清水さんはじめ数名設定）</div></div>
+          <div class="row"><div class="k">内容</div><div class="v">既存生徒さんからお友達・ご家族にRe:cheをご紹介いただき、ご入会となった場合に、紹介者さんへ謝礼（5万円）、ご入会者さんへ入会特典をお渡しする紹介キャンペーンです。</div></div>
+        </div>
+        <div class="note-strip">
+          ご案内は「無理なお勧めは一切しない」方針で、私たちが面談まで責任を持って対応します。
+        </div>
+      </div>
+    </div>
+
+    <!-- 体制と責任 -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-mark">03</span>
+        <span class="section-title">体制と責任</span>
+      </div>
+      <div class="card">
+        <div class="resp-grid">
+          <div class="resp-item">
+            <span class="tag">実行責任</span>
+            <div class="name">佐伯真由美・池田駿人</div>
+            <div class="desc">LINE対応〜面談・入会手続きのご案内まで</div>
+          </div>
+          <div class="resp-item">
+            <span class="tag">承認・管掌</span>
+            <div class="name">清水さん</div>
+            <div class="desc">施策内容・コスト・配信物すべて確認済み</div>
+          </div>
+          <div class="resp-item">
+            <span class="tag">入会後フロー・特典付与</span>
+            <div class="name">管理部の皆様</div>
+            <div class="desc">連携させていただきます（別途ご相談中）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 直近スケジュール -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-mark">04</span>
+        <span class="section-title">直近スケジュール</span>
+      </div>
+      <div class="card">
+        <div class="timeline">
+          <div class="t-item done">
+            <div class="t-date">8/22（土）</div>
+            <div class="t-desc">月一講座にて生徒さんへご紹介済み</div>
+          </div>
+          <div class="t-item">
+            <div class="t-date">8/24（月）夕方〜</div>
+            <div class="t-desc">Re:che全体フォローグループ（オープンチャット）へ配信予定<span class="flag">確認中</span></div>
+          </div>
+          <div class="t-item">
+            <div class="t-date">8/24〜31</div>
+            <div class="t-desc">紹介受付・個別相談の実施</div>
+          </div>
+          <div class="t-item">
+            <div class="t-date">9月上旬</div>
+            <div class="t-desc">特典付与（管理部の皆様と連携）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing">
+      <div class="msg">
+        施策を進めるにあたり、管理部・セールスチームの皆様には資料のご確認や入会フローの連携などでご協力をお願いする場面があるかと思います。その際はどうぞよろしくお願い致します。<br>
+        ご不明点・ご懸念があれば、佐伯・池田までいつでもお声がけください！
+      </div>
+      <div class="sign">佐伯真由美 ／ 池田駿人</div>
+    </div>
+
+  </div>
+
+  <div class="footer">Copyright© 2026&nbsp;&nbsp;Merone Inc. All rights reserved.</div>
+
+</div>
+</body>
+</html>
