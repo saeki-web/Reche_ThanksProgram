@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Re:che的つながり診断</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:   #f7a8c8;
+    --lav:    #c9aef2;
+    --sky:    #a7d3f7;
+    --peach:  #ffcfae;
+    --cream:  #fff8f3;
+    --ink:    #4a3b52;
+    --ink-soft: #8a7a92;
+    --card:   #ffffff;
+    --grad: linear-gradient(120deg, var(--pink) 0%, var(--lav) 55%, var(--sky) 100%);
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0; padding:0;
+    background: linear-gradient(180deg, #fff0f5 0%, var(--cream) 30%, #f2f7fd 100%);
+    font-family:"Noto Sans JP", sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  #app{
+    max-width: 460px;
+    margin: 0 auto;
+    min-height:100vh;
+    padding: 28px 20px 40px;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ---------- header / progress flower ---------- */
+  .app-header{ text-align:center; margin-bottom: 22px; }
+  .kicker{
+    display:inline-block;
+    font-size: 11.5px; font-weight:700; letter-spacing:.14em;
+    color:#fff; background:var(--grad);
+    padding: 5px 16px; border-radius:999px;
+    margin-bottom: 14px;
+  }
+  .app-title{
+    font-size: 21px; font-weight:800; line-height:1.55;
+    letter-spacing:-0.01em;
+  }
+  .app-title .accent{
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .petals{
+    display:flex; justify-content:center; gap:10px;
+    margin: 18px 0 4px;
+  }
+  .petal{
+    width:34px; height:34px; border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+    background: #f1e9f5;
+    border: 2px solid #eadff0;
+    transition: all .45s cubic-bezier(.34,1.56,.64,1);
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+  }
+  .petal.done{
+    background: var(--grad);
+    border-color: transparent;
+    transform: scale(1.12) rotate(-6deg);
+    box-shadow: 0 6px 14px -6px rgba(180,120,180,0.55);
+  }
+  .petal.current{
+    border-color:#cf9fd6;
+    box-shadow: 0 0 0 4px rgba(207,159,214,0.18);
+  }
+
+  /* ---------- cards / screens ---------- */
+  .screen{ display:none; flex:1; flex-direction:column; }
+  .screen.active{ display:flex; animation: fadeUp .45s ease both; }
+  @keyframes fadeUp{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .q-card{
+    background: var(--card);
+    border-radius: 22px;
+    padding: 26px 22px 22px;
+    box-shadow: 0 16px 34px -22px rgba(120,70,110,0.35);
+    margin-top: 6px;
+  }
+  .q-eyebrow{
+    font-size:12.5px; font-weight:700; color:#b06fae;
+    margin-bottom:8px;
+  }
+  .q-text{
+    font-size: 18px; font-weight:700; line-height:1.6;
+    margin-bottom: 20px;
+  }
+
+  .choices{ display:flex; flex-direction:column; gap:12px; }
+  .choice-btn{
+    all: unset;
+    cursor:pointer;
+    display:flex; align-items:center; gap:14px;
+    background: #fbf6fa;
+    border: 2px solid #f1e4ee;
+    border-radius: 16px;
+    padding: 16px 16px;
+    font-family:"Noto Sans JP", sans-serif;
+    font-size: 15px; font-weight:500; color:var(--ink);
+    line-height:1.55;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .choice-btn:active{ transform: scale(0.97); }
+  .choice-btn:hover{
+    border-color:#e3b9dd;
+    background:#fff;
+    box-shadow: 0 8px 18px -12px rgba(150,90,150,0.4);
+  }
+  .choice-letter{
+    flex:none;
+    width:32px; height:32px; border-radius:50%;
+    background: var(--grad);
+    color:#fff; font-weight:800; font-size:13px;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .nav-row{
+    margin-top:18px; display:flex; justify-content:flex-start;
+  }
+  .back-link{
+    all:unset; cursor:pointer;
+    font-size:13px; color:var(--ink-soft); font-weight:600;
+    padding: 6px 4px;
+  }
+
+  /* ---------- result screen ---------- */
+  .result-badge{
+    width:84px; height:84px; margin: 6px auto 14px;
+    border-radius: 50%;
+    background: var(--grad);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 38px;
+    box-shadow: 0 14px 26px -14px rgba(150,90,150,0.55);
+  }
+  .result-type{
+    text-align:center;
+    font-size: 24px; font-weight:800; margin-bottom:4px;
+  }
+  .result-sub{
+    text-align:center; font-size:13px; color:var(--ink-soft); margin-bottom:20px;
+  }
+  .result-card{
+    background:var(--card); border-radius:20px; padding:22px 20px;
+    box-shadow: 0 14px 30px -22px rgba(120,70,110,0.35);
+    margin-bottom:16px;
+  }
+  .result-card p{ margin:0 0 10px; font-size:14.5px; line-height:1.85; }
+  .result-card p:last-child{ margin-bottom:0; }
+  .trigger-line{
+    font-weight:700; color:#a24f8f;
+  }
+
+  .reveal-card{
+    background: linear-gradient(135deg, #fff2f7, #f3ecfb 55%, #eef6fd);
+    border: 1.5px solid #f0dcee;
+    border-radius: 20px;
+    padding: 22px 20px;
+    margin-bottom: 22px;
+    text-align:center;
+  }
+  .reveal-kicker{
+    font-size:11.5px; font-weight:700; letter-spacing:.1em; color:#b06fae; margin-bottom:8px;
+  }
+  .reveal-text{ font-size:14.5px; line-height:1.9; margin-bottom:4px; }
+  .reveal-amount{
+    font-size: 26px; font-weight:800;
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+    margin: 6px 0 2px;
+  }
+
+  .cta-btn{
+    all:unset; cursor:pointer;
+    display:block; text-align:center;
+    background: var(--grad);
+    color:#fff; font-weight:800; font-size:16px;
+    padding: 17px 20px; border-radius: 999px;
+    box-shadow: 0 14px 26px -12px rgba(150,90,150,0.55);
+    letter-spacing:.02em;
+  }
+  .cta-btn:active{ transform: scale(0.98); }
+
+  .retake-btn{
+    all:unset; cursor:pointer; display:block; text-align:center;
+    margin-top:14px; font-size:13px; color:var(--ink-soft); font-weight:600;
+    text-decoration: underline; text-underline-offset:3px;
+  }
+
+  .toast{
+    position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(10px);
+    background: var(--ink); color:#fff; font-size:13px; font-weight:600;
+    padding:10px 18px; border-radius:999px;
+    opacity:0; pointer-events:none; transition: all .3s ease;
+    white-space:nowrap;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  footer.foot{
+    text-align:center; margin-top:auto; padding-top:26px;
+    font-size:11px; color:#c3b3c8;
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div class="app-header">
+    <span class="kicker">Re:che diagnostic</span>
+    <div class="app-title">3問でわかる<br><span class="accent">あなたの"Re:che的つながり"</span>タイプ</div>
+    <div class="petals" id="petals">
+      <div class="petal" data-i="0">🌸</div>
+      <div class="petal" data-i="1">🌸</div>
+      <div class="petal" data-i="2">🌸</div>
+    </div>
+  </div>
+
+  <!-- Q1 -->
+  <section class="screen" id="screen-q0">
+    <div class="q-card">
+      <div class="q-eyebrow">Q1 / 3</div>
+      <div class="q-text">物販を始めてから、一番よく感じることは？</div>
+      <div class="choices">
+        <button class="choice-btn" data-q="0" data-a="A"><span class="choice-letter">A</span>黙々と一人で進めるのが、意外と心地いい</button>
+        <button class="choice-btn" data-q="0" data-a="B"><span class="choice-letter">B</span>たまに、ふと話せる相手が欲しくなる</button>
+        <button class="choice-btn" data-q="0" data-a="C"><span class="choice-letter">C</span>正直、孤独を感じる瞬間が多い</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Q2 -->
+  <section class="screen" id="screen-q1">
+    <div class="q-card">
+      <div class="q-eyebrow">Q2 / 3</div>
+      <div class="q-text">今のRe:che生活で、一番欲しいものは？</div>
+      <div class="choices">
+        <button class="choice-btn" data-q="1" data-a="A"><span class="choice-letter">A</span>オンラインでいいから、気軽に相談できる相手</button>
+        <button class="choice-btn" data-q="1" data-a="B"><span class="choice-letter">B</span>たまにでいいから、リアルで会える仲間</button>
+        <button class="choice-btn" data-q="1" data-a="C"><span class="choice-letter">C</span>一緒に頑張れる「戦友」みたいな存在</button>
+      </div>
+    </div>
+    <div class="nav-row"><button class="back-link" data-back="0">← ひとつ前の質問へ</button></div>
+  </section>
+
+  <!-- Q3 -->
+  <section class="screen" id="screen-q2">
+    <div class="q-card">
+      <div class="q-eyebrow">Q3 / 3</div>
+      <div class="q-text">Re:cheの環境について、一番近い気持ちは？</div>
+      <div class="choices">
+        <button class="choice-btn" data-q="2" data-a="A"><span class="choice-letter">A</span>今のままでも十分、居心地がいい</button>
+        <button class="choice-btn" data-q="2" data-a="B"><span class="choice-letter">B</span>好きだからこそ、もっと仲間を増やしたい</button>
+        <button class="choice-btn" data-q="2" data-a="C"><span class="choice-letter">C</span>この場所を、大切な人にも知ってほしい</button>
+      </div>
+    </div>
+    <div class="nav-row"><button class="back-link" data-back="1">← ひとつ前の質問へ</button></div>
+  </section>
+
+  <!-- Result -->
+  <section class="screen" id="screen-result">
+    <div class="result-badge" id="resultEmoji">🕊️</div>
+    <div class="result-type" id="resultType">灯台タイプ</div>
+    <div class="result-sub" id="resultDate"></div>
+
+    <div class="result-card">
+      <p id="resultDesc"></p>
+      <p class="trigger-line" id="resultTrigger"></p>
+    </div>
+
+    <div class="reveal-card">
+      <div class="reveal-kicker">実はRe:cheに、ずっと前からあった制度</div>
+      <div class="reveal-text">お友だちを紹介してくれた方に、</div>
+      <div class="reveal-amount">謝礼 5万円</div>
+      <div class="reveal-text">という、超太っ腹な企画をやっています🌷</div>
+    </div>
+
+    <button class="cta-btn" id="ctaBtn">気になる人を誘ってみる（公式LINE）</button>
+    <button class="retake-btn" id="retakeBtn">もう一度診断してみる</button>
+  </section>
+
+  <footer class="foot">Re:che × Merone</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var TOTAL = 3;
+  var STORAGE_KEY = "reche_tsunagari_shindan_v1";
+  // ▼ ボタンを押した時の行き先（Re:che公式LINE）
+  var LINE_URL = "https://lin.ee/UsHd17Z";
+
+  var screens = {
+    q0: document.getElementById('screen-q0'),
+    q1: document.getElementById('screen-q1'),
+    q2: document.getElementById('screen-q2'),
+    result: document.getElementById('screen-result')
+  };
+  var petals = document.querySelectorAll('.petal');
+  var toastEl = document.getElementById('toast');
+
+  var TYPES = {
+    A: {
+      key: 'A',
+      emoji: '🕊️',
+      name: '灯台タイプ',
+      desc: 'あなたは、今の環境にすでに満足していて、その魅力を自分の言葉でちゃんと語れる人。無理に誘うより、あなたの姿そのものが誰かの背中を押しています。',
+      trigger: 'あなたに憧れて、こっそりRe:cheを気になってる人、いませんか？'
+    },
+    B: {
+      key: 'B',
+      emoji: '🌉',
+      name: '橋渡しタイプ',
+      desc: 'あなたは、ゆるやかなつながりを大事にする人。ひとりで頑張っている人と、Re:cheの環境をそっとつなげる役割がとても似合います。',
+      trigger: '最近「頑張ってるけど、ちょっと大変そうだな」と感じた人、いませんでしたか？'
+    },
+    C: {
+      key: 'C',
+      emoji: '🔥',
+      name: '戦友タイプ',
+      desc: 'あなたは、一緒に頑張る仲間を強く求めている人。同じ熱量で並走できる誰かがいると、あなた自身も、もっと前に進めるタイプです。',
+      trigger: '同じように物販や副業を頑張ってるけど、孤独そうな友達、いませんか？'
+    }
+  };
+
+  var state = { step: 0, answers: [null, null, null] };
+
+  function showScreen(name){
+    Object.keys(screens).forEach(function(k){
+      screens[k].classList.toggle('active', k === name);
+    });
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function updatePetals(){
+    petals.forEach(function(p, i){
+      p.classList.toggle('done', state.answers[i] !== null);
+      p.classList.toggle('current', i === state.step && state.answers[i] === null);
+    });
+  }
+
+  function goToStep(i){
+    state.step = i;
+    updatePetals();
+    showScreen('q' + i);
+  }
+
+  function computeType(){
+    var count = { A:0, B:0, C:0 };
+    state.answers.forEach(function(a){ if(a) count[a]++; });
+    var order = ['C','B','A']; // 同数のときは「つながりを求める度合いが強い」方を優先
+    var best = order[0];
+    order.forEach(function(k){ if(count[k] > count[best]) best = k; });
+    return best;
+  }
+
+  function showResult(){
+    var typeKey = computeType();
+    var t = TYPES[typeKey];
+    document.getElementById('resultEmoji').textContent = t.emoji;
+    document.getElementById('resultType').textContent = t.name;
+    document.getElementById('resultDesc').textContent = t.desc;
+    document.getElementById('resultTrigger').textContent = t.trigger;
+    document.getElementById('resultDate').textContent = formatDate(new Date());
+    showScreen('result');
+
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        type: typeKey,
+        answers: state.answers,
+        savedAt: new Date().toISOString()
+      }));
+    }catch(e){}
+  }
+
+  function formatDate(d){
+    var m = d.getMonth()+1, day = d.getDate();
+    return m + '月' + day + '日の診断結果';
+  }
+
+  function loadSaved(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return false;
+      var data = JSON.parse(raw);
+      if(!data || !data.type || !TYPES[data.type]) return false;
+      var t = TYPES[data.type];
+      document.getElementById('resultEmoji').textContent = t.emoji;
+      document.getElementById('resultType').textContent = t.name;
+      document.getElementById('resultDesc').textContent = t.desc;
+      document.getElementById('resultTrigger').textContent = t.trigger;
+      var savedDate = data.savedAt ? new Date(data.savedAt) : new Date();
+      document.getElementById('resultDate').textContent = formatDate(savedDate) + '（保存済み）';
+      if(Array.isArray(data.answers)) state.answers = data.answers;
+      showScreen('result');
+      return true;
+    }catch(e){ return false; }
+  }
+
+  function showToast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    setTimeout(function(){ toastEl.classList.remove('show'); }, 1800);
+  }
+
+  document.querySelectorAll('.choice-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var q = parseInt(btn.getAttribute('data-q'), 10);
+      var a = btn.getAttribute('data-a');
+      state.answers[q] = a;
+      updatePetals();
+      if(q < TOTAL - 1){
+        setTimeout(function(){ goToStep(q+1); }, 150);
+      } else {
+        setTimeout(showResult, 150);
+      }
+    });
+  });
+
+  document.querySelectorAll('.back-link').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      goToStep(parseInt(btn.getAttribute('data-back'), 10));
+    });
+  });
+
+  document.getElementById('retakeBtn').addEventListener('click', function(){
+    state = { step:0, answers:[null,null,null] };
+    try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+    goToStep(0);
+  });
+
+  document.getElementById('ctaBtn').addEventListener('click', function(){
+    showToast('公式LINEを開きます…');
+    setTimeout(function(){ window.open(LINE_URL, '_blank'); }, 350);
+  });
+
+  if(!loadSaved()){
+    goToStep(0);
+  }
+})();
+</script>
+</body>
+</html>
