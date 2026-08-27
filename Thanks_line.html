@@ -151,7 +151,7 @@ body{
 
   <section class="card">
     <div class="primary-label">STEP 1・かんたん登録</div>
-    <a class="linebtn" href="https://lin.ee/YIltszf" target="_blank" rel="noopener" onclick="trackTap()">
+    <a class="linebtn" href="https://lin.ee/YIltszf" target="_blank" rel="noopener" onclick="trackEvent('LINEタップ')">
       <div class="lineicon">LINE</div>
       <strong>LINEを開いて<br>友だち追加する</strong>
     </a>
@@ -203,24 +203,46 @@ body{
 </main>
 <script>
 // タップ計測用: Googleフォームの送信先URLとentry IDをここに貼り付けてください
-const FORM_URL = "YOUR_FORM_URL_HERE";       // 例: https://docs.google.com/forms/d/e/xxxxxxxx/formResponse
-const ENTRY_ID = "YOUR_ENTRY_ID_HERE";       // 例: entry.1234567890
+const FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfWc8bm7DymD5FOaPKc_yj7bsgmgAHyhlD5PGDls4GuZv_Akg/formResponse";
+const ENTRY_ID = "entry.1307739769";
 
-function trackTap(){
+// この端末を識別するためのID(初回アクセス時に発行し、以後同じ端末では使い回す)
+function getVisitorId(){
+  try {
+    let id = localStorage.getItem('reche_visitor_id');
+    if (!id) {
+      id = 'v-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+      localStorage.setItem('reche_visitor_id', id);
+    }
+    return id;
+  } catch (err) {
+    return 'unknown';
+  }
+}
+
+// イベント名と端末IDをまとめて1つの回答として送信する
+function trackEvent(eventName){
   if (!FORM_URL || FORM_URL.indexOf('YOUR_FORM_URL_HERE') !== -1) return;
   try {
+    const visitorId = getVisitorId();
     fetch(FORM_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({ [ENTRY_ID]: 'LINEボタンタップ' })
+      body: new URLSearchParams({ [ENTRY_ID]: eventName + '|' + visitorId })
     });
   } catch (err) {
-    // 計測に失敗してもLINEへの遷移は妨げない
+    // 計測に失敗しても操作自体は妨げない
   }
 }
 
+// ページを開いた時点で1回だけ「ページ訪問」を記録
+window.addEventListener('DOMContentLoaded', function(){
+  trackEvent('ページ訪問');
+});
+
 function saveQr(){
+  trackEvent('QR保存');
   const img = document.getElementById('qrImage');
   const a = document.createElement('a');
   a.href = img.src;
@@ -231,6 +253,7 @@ function saveQr(){
 }
 
 function copyId(){
+  trackEvent('IDコピー');
   const t=document.getElementById('lineid').innerText,m=document.getElementById('copymsg');
   if(navigator.clipboard&&window.isSecureContext){
     navigator.clipboard.writeText(t).then(()=>m.textContent='IDをコピーしました').catch(()=>fb(t,m))
