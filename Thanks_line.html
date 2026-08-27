@@ -253,7 +253,6 @@ function saveQr(){
 }
 
 function copyId(){
-  trackEvent('IDコピー');
   const t=document.getElementById('lineid').innerText,m=document.getElementById('copymsg');
   if(navigator.clipboard&&window.isSecureContext){
     navigator.clipboard.writeText(t).then(()=>m.textContent='IDをコピーしました').catch(()=>fb(t,m))
