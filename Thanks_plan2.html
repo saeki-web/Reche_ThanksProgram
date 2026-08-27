@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>紹介施策 延長のご承認について｜Merone</title>
+<style>
+  :root{
+    --pink:      #F07DAA;
+    --pink-2:    #EBA0B4;
+    --peach:     #FFBEB4;
+    --yellow:    #FFE6B4;
+    --blue:      #C8E6FA;
+    --periwinkle:#BEC8FA;
+    --purple:    #DCA0DC;
+    --ink:       #4D4545;
+    --ink-soft:  #857b7b;
+    --line:      #E7D9DB;
+    --bg:        #FFFBFA;
+    --card:      #FFFFFF;
+    --gradient:  linear-gradient(90deg, var(--pink), var(--peach), var(--yellow), var(--blue), var(--periwinkle), var(--purple));
+    --gradient-mono: linear-gradient(90deg, #FBD3E1, var(--pink));
+    --weekend-sat: linear-gradient(135deg, #BEC8FA, #8FAEF5);
+    --weekend-sun: linear-gradient(135deg, #FFBEB4, #F0708A);
+    --font-jp: "Yu Gothic Medium","Yu Gothic",YuGothic,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --font-latin: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-jp);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .grad-bar{ height:6px; width:100%; background:var(--gradient); }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:64px 0 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:var(--font-latin);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-size:12px;
+    color:var(--pink);
+    font-weight:700;
+    margin:0 0 18px;
+  }
+  h1.title{
+    font-size:clamp(28px,4.4vw,44px);
+    line-height:1.4;
+    margin:0 0 20px;
+    font-weight:700;
+    letter-spacing:.02em;
+  }
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px 28px;
+    font-size:13px; color:var(--ink-soft);
+    border-top:1px solid var(--line);
+    padding-top:18px;
+    margin-top:8px;
+  }
+  .meta-row span b{ color:var(--ink); font-weight:700; }
+
+  /* ---------- SECTION LABEL (brand-book style: color bar + heading) ---------- */
+  .section{ padding:56px 0; border-bottom:1px solid var(--line); }
+  .section:last-of-type{ border-bottom:none; }
+  .label{
+    display:flex; align-items:flex-start; gap:14px;
+    margin-bottom:28px;
+  }
+  .label .bar{
+    width:4px; align-self:stretch; min-height:34px;
+    background:var(--gradient);
+    flex:0 0 auto;
+  }
+  .label h2{
+    margin:0; font-size:22px; font-weight:700; letter-spacing:.02em;
+  }
+  .label p.desc{
+    margin:6px 0 0; font-size:14px; color:var(--ink-soft); max-width:60ch;
+  }
+
+  /* ---------- APPROVAL BOXES ---------- */
+  .approval-list{ display:flex; flex-direction:column; gap:16px; }
+  .approval{
+    border:1px solid var(--pink);
+    background:var(--card);
+    padding:22px 24px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:4px 20px;
+  }
+  .approval .num{
+    grid-row: span 2;
+    font-family:var(--font-latin);
+    font-size:34px;
+    font-weight:700;
+    color:var(--pink);
+    line-height:1;
+    align-self:center;
+  }
+  .approval .head{ font-size:13px; color:var(--ink-soft); letter-spacing:.06em; }
+  .approval .flow{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    font-size:18px; font-weight:700;
+  }
+  .approval .flow .from{ color:var(--ink-soft); font-weight:500; text-decoration:line-through; text-decoration-color:var(--ink-soft); }
+  .approval .flow .arrow{ color:var(--pink); font-weight:700; }
+  .approval .flow .to{ color:var(--ink); font-size:20px; }
+  .note-box{
+    margin-top:16px;
+    border-left:3px solid var(--yellow);
+    background:#FFFDF6;
+    padding:12px 16px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- STAT DASHBOARD ---------- */
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .stat{
+    background:var(--card);
+    padding:26px 20px;
+    border-top:3px solid var(--pink);
+  }
+  .stat:nth-child(2){ border-top-color:var(--peach); }
+  .stat:nth-child(3){ border-top-color:var(--blue); }
+  .stat .num{
+    font-family:var(--font-latin);
+    font-size:30px; font-weight:700; color:var(--ink);
+    line-height:1.1;
+    white-space:nowrap;
+  }
+  .stat .num small{ font-size:15px; font-weight:500; }
+  .stat .label{ margin-top:8px; font-size:13px; color:var(--ink-soft); }
+
+  @media (max-width:760px){
+    .stat-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- READ-RATE CHART ---------- */
+  .chart{ display:flex; flex-direction:column; gap:14px; margin:24px 0 8px; }
+  .bar-row{ display:grid; grid-template-columns:180px 1fr 90px; align-items:center; gap:14px; }
+  .bar-row .name{ font-size:13.5px; color:var(--ink-soft); }
+  .bar-track{ background:#F3E9EA; height:22px; position:relative; }
+  .bar-fill{ height:100%; background:var(--gradient-mono); }
+  .bar-row .value{ font-family:var(--font-latin); font-weight:700; font-size:14px; text-align:right; }
+  .chart-foot{ font-size:13px; color:var(--ink-soft); }
+
+  .callout{
+    margin-top:22px;
+    border:1px solid var(--line);
+    border-left:4px solid var(--pink);
+    padding:18px 20px;
+    background:#FFF6F8;
+    font-size:15px;
+  }
+  .callout b{ color:var(--pink); }
+
+  /* ---------- WEEKEND COMPARE ---------- */
+  .compare{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:8px; }
+  .compare .col{ border:1px solid var(--line); padding:20px; }
+  .compare .col h3{ margin:0 0 14px; font-size:13px; color:var(--ink-soft); font-weight:700; letter-spacing:.04em; }
+  .weeks{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+  .week{ width:34px; height:34px; border:1px dashed var(--line); display:flex; align-items:center; justify-content:center; font-size:11px; color:var(--ink-soft); font-family:var(--font-latin); background:#F7F1F1; }
+  .week.dated{
+    width:auto; min-width:58px; height:48px;
+    flex-direction:column; gap:2px; padding:4px 6px; line-height:1.15;
+  }
+  .week.dated .d{ font-family:var(--font-latin); font-weight:700; font-size:12.5px; }
+  .week.dated .w{ font-size:10px; }
+  .week.sat.on{ background:var(--weekend-sat); border:1px solid #8FAEF5; color:#fff; font-weight:700; }
+  .week.sun.on{ background:var(--weekend-sun); border:1px solid #F0708A; color:#fff; font-weight:700; }
+  .compare .big{ font-family:var(--font-latin); font-size:26px; font-weight:700; }
+  .compare .col.after .big{ color:var(--pink); }
+
+  @media (max-width:640px){ .compare{ grid-template-columns:1fr; } }
+
+  /* ---------- PROBLEM LIST ---------- */
+  .problem{ margin-bottom:40px; }
+  .problem:last-child{ margin-bottom:0; }
+  .problem .ptitle{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:10px;
+  }
+  .problem .ptag{
+    font-family:var(--font-latin); font-size:12px; font-weight:700; color:#fff;
+    background:var(--ink); padding:3px 9px; letter-spacing:.05em;
+  }
+  .problem h3{ margin:0; font-size:17px; font-weight:700; }
+  .problem .conclusion{ font-size:15px; margin:0 0 10px; }
+  .problem .conclusion b{ background:linear-gradient(transparent 62%, var(--yellow) 62%); }
+
+  ul.plain{ margin:8px 0; padding-left:20px; font-size:14.5px; }
+  ul.plain li{ margin-bottom:6px; }
+
+  .cost-box{
+    border:1px solid var(--line); padding:18px 20px; margin-top:14px; font-size:14.5px;
+    display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  .cost-box .item{ min-width:150px; }
+  .cost-box .item .k{ font-size:12.5px; color:var(--ink-soft); margin-bottom:4px; }
+  .cost-box .item .v{ font-family:var(--font-latin); font-size:20px; font-weight:700; }
+
+  /* ---------- FORECAST TABLE ---------- */
+  table.forecast{ width:100%; border-collapse:collapse; margin-top:8px; font-size:14.5px; }
+  table.forecast th, table.forecast td{ border:1px solid var(--line); padding:14px 16px; text-align:left; }
+  table.forecast thead th{ background:#FFF6F8; font-size:12.5px; color:var(--ink-soft); font-weight:700; letter-spacing:.03em; }
+  table.forecast tbody tr td:first-child{ font-weight:700; }
+  table.forecast tbody tr:nth-child(2){ background:#FFFAF0; }
+  table.forecast tbody tr:nth-child(2) td:first-child{ color:var(--pink); }
+  table.forecast td.range{ font-family:var(--font-latin); font-weight:700; }
+
+  /* ---------- MEASUREMENT REPORT ---------- */
+  .findings-list{ list-style:none; margin:14px 0 0; padding:0; }
+  .findings-list li{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:14.5px; padding:10px 0; border-bottom:1px solid var(--line);
+  }
+  .findings-list li:last-child{ border-bottom:none; }
+  .findings-list .x{
+    flex:0 0 auto; width:20px; height:20px;
+    background:var(--ink); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-latin); font-size:11px; font-weight:700;
+    margin-top:1px;
+  }
+  .tool-link{
+    display:inline-block;
+    margin:6px 10px 6px 0;
+    padding:10px 16px;
+    border:1px dashed var(--pink);
+    color:var(--pink);
+    font-family:var(--font-latin);
+    font-size:13.5px;
+    font-weight:700;
+    text-decoration:none;
+  }
+  .next-action p{ margin:0 0 10px; }
+  .next-action p:last-child{ margin-bottom:0; }
+
+  .next-action{
+    border:1px solid var(--pink);
+    padding:20px 22px;
+    margin-top:18px;
+  }
+  .next-action .tag{
+    font-family:var(--font-latin); font-size:12px; font-weight:700; color:var(--pink);
+    letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px;
+  }
+  .next-action ul.plain{ margin-top:10px; }
+
+  /* ---------- CLOSING ---------- */
+  .closing{ padding:64px 0 80px; text-align:left; }
+  .closing .ask-recap{
+    display:flex; gap:16px; flex-wrap:wrap; margin:22px 0 30px;
+  }
+  .ask-recap .pill{
+    border:1px solid var(--pink); padding:10px 16px; font-size:14px; font-weight:700;
+    display:flex; align-items:center; gap:8px;
+  }
+  .ask-recap .pill .n{ color:var(--pink); font-family:var(--font-latin); }
+  .sign-off{ font-size:15px; margin-top:28px; }
+  footer{
+    font-family:var(--font-latin); font-size:12px; color:var(--ink-soft);
+    text-align:center; padding:26px 0; border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<div class="grad-bar"></div>
+
+<div class="wrap">
+  <header class="hero">
+    <h1 class="title">紹介施策 延長のご承認について</h1>
+    <div class="meta-row">
+      <span>対象施策：紹介キャンペーン（受付・決済期限）</span>
+      <span>ご判断事項：<b>3件</b></span>
+    </div>
+  </header>
+
+  <!-- ============ 承認事項 ============ -->
+  <section class="section" id="ask">
+    <div class="label">
+      <div class="bar"></div>
+      <div>
+        <h2>ご承認いただきたいこと（3点）</h2>
+        <p class="desc">以下3点について、ご承認をお願いいたします。まず①②の日程延長からご確認ください。</p>
+      </div>
+    </div>
+
+    <div class="approval-list">
+      <div class="approval">
+        <div class="num">01</div>
+        <div class="head">紹介受付の延長</div>
+        <div class="flow">
+          <span class="from">8/29（土）</span>
+          <span class="arrow">→</span>
+          <span class="to">9/15（火）</span>
+        </div>
+      </div>
+      <div class="approval">
+        <div class="num">02</div>
+        <div class="head">決済完了の延長</div>
+        <div class="flow">
+          <span class="from">8/31（月）</span>
+          <span class="arrow">→</span>
+          <span class="to">9/30（水）</span>
+        </div>
+      </div>
+      <div class="approval">
+        <div class="num">03</div>
+        <div class="head">計測方法の変更</div>
+        <div class="flow">
+          <span class="from">短縮URLのみ（計測不可）</span>
+          <span class="arrow">→</span>
+          <span class="to">独自ツールで計測</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box">
+      ※ 会社の課題（着金100万円）のカウントは <b>従来通り 8/31 決済分で締め</b>ます。今回の延長は課題の延命が目的ではなく、<b>投下済みの整備と認知を、Meroneの売上として回収する</b>ための施策です。
+    </div>
+  </section>
+
+  <!-- ============ サマリー数値 ============ -->
+  <section class="section" id="summary">
+    <div class="label">
+      <div class="bar"></div>
+      <div>
+        <h2>一目でわかるサマリー</h2>
+        <p class="desc">判断に必要な数字だけをまとめました。</p>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="num">ほぼゼロ</div>
+        <div class="label">追加コスト</div>
+      </div>
+      <div class="stat">
+        <div class="num">3件<small> / 150万円前後</small></div>
+        <div class="label">目標（成約数／売上）</div>
+      </div>
+      <div class="stat">
+        <div class="num">0<small>回 → </small>3<small>回</small></div>
+        <div class="label">声かけに使える週末</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 問題① 認知の完成タイミング ============ -->
+  <section class="section" id="p1">
+    <div class="label">
+      <div class="bar"></div>
+      <div><h2>延長が必要な理由</h2></div>
+    </div>
+
+    <div class="problem">
+      <div class="ptitle"><span class="ptag">問題 01</span><h3>認知の完成が、〆切と同日になっている</h3></div>
+      <p class="conclusion">全体LINEの認知は完成まで<b>4〜5日</b>かかるのに対し、現行の〆切では「知った瞬間に締切」という構造になっています。</p>
+
+      <div class="chart">
+        <div class="bar-row">
+          <div class="name">当施策（8/24 20時配信）</div>
+          <div class="bar-track"><div class="bar-fill" style="width:73%"></div></div>
+          <div class="value">941／15h</div>
+        </div>
+        <div class="bar-row">
+          <div class="name">リシュコレ告知（8/24昼）</div>
+          <div class="bar-track"><div class="bar-fill" style="width:83%"></div></div>
+          <div class="value">1,064／翌日</div>
+        </div>
+        <div class="bar-row">
+          <div class="name">月一講座告知（8/21）</div>
+          <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+          <div class="value">1,287／3日後</div>
+        </div>
+      </div>
+      <p class="chart-foot">数値＝既読数／到達までの経過時間（直近3配信の実測）</p>
+
+      <div class="callout">
+        既読は<b>「24時間で約8割」</b>到達する一方、残り<b>2割（約300人）は2〜5日かけて到達</b>します。当施策の認知が完成するのは<b>8/28〜29頃</b>となり、現行の受付〆切（8/29）とほぼ同日のため、<b>知っても行動する期間が残っていません</b>。
+      </div>
+    </div>
+
+    <div class="problem">
+      <div class="ptitle"><span class="ptag">問題 02</span><h3>紹介までのリードタイムが確保できていない</h3></div>
+      <p class="conclusion">現行設計では、友人への声かけに使える<b>完全な週末が0回</b>です。</p>
+
+      <div class="compare">
+        <div class="col before">
+          <h3>現行スケジュール</h3>
+          <div class="weeks">
+            <div class="week sat">土</div><div class="week sun">日</div>
+          </div>
+          <div class="big">週末 0回</div>
+        </div>
+        <div class="col after">
+          <h3>延長後スケジュール</h3>
+          <div class="weeks">
+            <div class="week sat on dated"><span class="d">8/29</span><span class="w">土</span></div>
+            <div class="week sun on dated"><span class="d">8/30</span><span class="w">日</span></div>
+            <div class="week sat on dated"><span class="d">9/5</span><span class="w">土</span></div>
+            <div class="week sun on dated"><span class="d">9/6</span><span class="w">日</span></div>
+            <div class="week sat on dated"><span class="d">9/12</span><span class="w">土</span></div>
+            <div class="week sun on dated"><span class="d">9/13</span><span class="w">日</span></div>
+          </div>
+          <div class="big">週末 3回</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:20px;">
+        声かけは、友人と会う・連絡を取る<b>週末に発生しやすい行動</b>です。延長後は声かけに使える週末が3回確保でき、決済期間内には<b>シルバーウィークも含まれます</b>。
+      </div>
+    </div>
+
+    <div class="problem">
+      <div class="ptitle"><span class="ptag">問題 03</span><h3>公式LINE誘導時の機会損失</h3></div>
+      <p class="conclusion">8/24 20時の配信直後、アクセスが集中したことで一時的に友だち登録ができない状態が発生し、初動の温度が最も高い層の一部を取りこぼす結果となりました。</p>
+      <div class="callout">
+        再周知と、この機会損失分の<b>回収期間が必要</b>です。あわせて調査した結果、現在掲載している導線についても<b>タップ数の計測ができない</b>ことが判明しています。
+      </div>
+    </div>
+
+    <div class="problem">
+      <div class="ptitle"><span class="ptag">問題 04</span><h3>整備コストの損失</h3></div>
+      <p class="conclusion">このまま終了すると、投下済みの認知・整備コストが<b>回収ゼロ</b>で確定します。</p>
+      <ul class="plain">
+        <li>専用LINE・管理部連携・配信文など、初期整備はすべて完了済み</li>
+        <li>紹介コスト・特典は成約時のみ発生する変動費のため、延長による固定費の追加はなし</li>
+      </ul>
+      <div class="cost-box">
+        <div class="item"><div class="k">成約1件あたりのコスト</div><div class="v">7万円</div></div>
+        <div class="item"><div class="k">単価に対する比率</div><div class="v">12.7%</div></div>
+        <div class="item"><div class="k">承認状況</div><div class="v" style="font-size:16px;">承認済みの水準</div></div>
+        <div class="item"><div class="k">延長固有の新規リスク</div><div class="v" style="font-size:16px;">なし</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 延長後の見込み ============ -->
+  <section class="section" id="forecast">
+    <div class="label">
+      <div class="bar"></div>
+      <div>
+        <h2>延長後の見込み</h2>
+        <p class="desc">紹介型の構造を踏まえた保守的な試算です。紹介数の予測が最も難しいため、再配信後の実数で再検証します。</p>
+      </div>
+    </div>
+
+    <table class="forecast">
+      <thead>
+        <tr><th>区分</th><th>紹介数</th><th>相談</th><th>成約</th><th>売上目安</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>保守</td><td class="range">6〜8件</td><td>—</td><td class="range">1〜2件</td><td class="range">50〜100万円</td></tr>
+        <tr><td>標準</td><td class="range">10〜15件</td><td class="range">6〜9件</td><td class="range">2〜3件</td><td class="range">100〜150万円</td></tr>
+        <tr><td>目標</td><td>—</td><td>—</td><td class="range">3件</td><td class="range">150万円</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-foot" style="margin-top:14px;">
+      LINE登録→相談率は50%以上を想定（友人はご友人の話を聞く前提で登録するため）。成約率は一般目安30%で保守設定。面談成約の直近実績（約50%）を維持できれば、目標の成約3件が射程に入ります。
+    </p>
+  </section>
+
+  <!-- ============ ご報告：計測方法の検証結果 ============ -->
+  <section class="section" id="report">
+    <div class="label">
+      <div class="bar"></div>
+      <div>
+        <h2>ご報告：LINE計測方法の検証結果</h2>
+        <p class="desc">友だち追加リンクのクリック計測について検証を行いました。結果と対応方針は以下の通りです。</p>
+      </div>
+    </div>
+
+    <div class="problem">
+      <div class="ptitle"><span class="ptag">検証結果</span><h3>友だち追加リンクのクリック計測について</h3></div>
+      <p class="conclusion">結論、<b>現状の方法ではクリックの計測はできません</b>でした。</p>
+
+      <ul class="findings-list">
+        <li><span class="x">×</span>無料の友だち追加リンクのみでは、クリック計測は不可能</li>
+        <li><span class="x">×</span>認証済みアカウントなら計測可能だが、認証に5〜10日かかり非現実的</li>
+        <li><span class="x">×</span>外部の短縮URLを投稿すると、トークが即座に削除される仕様あり（警告あり）</li>
+      </ul>
+    </div>
+
+    <div class="next-action">
+      <div class="tag">ご提案</div>
+      <p>短縮URLのみでは計測ができないため、改めて計測できる自社ツールを作成しました。</p>
+      <a class="tool-link" href="https://saeki-web.github.io/Reche_ThanksProgram/Thanks_line" target="_blank" rel="noopener">🔗 計測ツールを開く</a>
+      <p style="margin-top:14px;">こちらでタップ数・時間・件数を計測していきます。</p>
+      <a class="tool-link" href="https://docs.google.com/spreadsheets/d/15uKQ7iVT4sigOzqGOgJ_tElyarqp00EHAKMKve6lXNw/edit?usp=sharing" target="_blank" rel="noopener">📊 集計スプレッドシートを見る</a>
+    </div>
+  </section>
+
+  <!-- ============ クロージング ============ -->
+  <section class="closing">
+    <div class="label">
+      <div class="bar"></div>
+      <div><h2>ご判断のお願い</h2></div>
+    </div>
+    <p>ここまでの内容をもとに、以下3点についてご承認をお願いいたします。</p>
+    <div class="ask-recap">
+      <div class="pill"><span class="n">01</span> 紹介受付：9/15（火）まで延長</div>
+      <div class="pill"><span class="n">02</span> 決済完了：9/30（水）まで延長</div>
+      <div class="pill"><span class="n">03</span> 計測方法：独自ツールでの計測に変更</div>
+    </div>
+    <p class="sign-off">お手数をおかけしますが、上記についてご判断のほど、よろしくお願いいたします。</p>
+  </section>
+</div>
+
+<footer>Re:che Thanks Program — 2026</footer>
+
+</body>
+</html>
