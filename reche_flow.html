@@ -1,0 +1,521 @@
+<title>Re:che ThanksProgram</title>
+<meta name="description" content="Re:che ThanksProgramのご案内。お友達をご案内してから入会・特典までの流れをまとめたシートです。">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+  :root{
+    --bg: #fffdfb;
+    --surface: #ffffff;
+    --surface-2: #fffefc;
+    --ink: #4d4545;
+    --ink-soft: #7a6f6f;
+    --line: #f1e8e3;
+
+    --pink: #f07daa;
+    --pink-ink: #b5316a;
+    --pink-bg: #ffeef4;
+    --pink-bg-strong: #ffdcea;
+
+    --lav: #4fa8d8;
+    --lav-ink: #1f7a9e;
+    --lav-bg: #e6f5fb;
+    --lav-bg-strong: #c8e6fa;
+
+    --yellow-bg: #fff3d9;
+    --yellow-ink: #a97a14;
+    --purple-bg: #f6e6f6;
+    --purple-ink: #9c4f9c;
+
+    --shadow: 0 1px 2px rgba(77,69,69,.06), 0 8px 24px -12px rgba(77,69,69,.18);
+    --radius: 20px;
+  }
+
+  /* この案内シートは常に明るいテーマで表示します（端末のダークモード設定に関わらず固定） */
+
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans JP", "Yu Gothic", "游ゴシック体", "Hiragino Sans", sans-serif;
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 20px 80px; }
+  img{ max-width:100%; }
+
+  h1,h2,h3,.disp{
+    font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  a{ color: inherit; }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position: relative;
+    padding: 64px 20px 56px;
+    text-align: center;
+    overflow: hidden;
+    background:
+      radial-gradient(480px 260px at 14% -10%, var(--pink-bg-strong), transparent 65%),
+      radial-gradient(480px 260px at 90% 0%, var(--lav-bg-strong), transparent 60%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner{ max-width: 720px; margin: 0 auto; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size: 12.5px; letter-spacing: .14em; font-weight:700;
+    color: var(--pink-ink); background: var(--pink-bg);
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 22px;
+  }
+  .eyebrow::before{ content:"🍀"; font-size:13px; }
+  h1{ font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: var(--ink); }
+  h1 em{
+    font-style: normal;
+    background: linear-gradient(180deg, transparent 62%, var(--pink-bg-strong) 62%);
+  }
+  .lede{
+    margin: 18px auto 0; max-width: 520px;
+    color: var(--ink-soft); font-size: 16px;
+  }
+  .hero-tags{
+    margin-top: 28px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+  }
+  .tag{
+    font-size:13px; font-weight:500; padding: 6px 14px; border-radius:999px;
+    border:1px solid var(--line); background: var(--surface); color: var(--ink-soft);
+  }
+
+  /* ---------- section shell ---------- */
+  section{ padding-top: 56px; }
+  .section-head{ text-align:center; max-width: 600px; margin: 0 auto 32px; }
+  .section-head .kicker{
+    display:block; font-size: 12.5px; font-weight:700; letter-spacing:.14em;
+    color: var(--lav-ink); margin-bottom: 10px;
+  }
+  .section-head h2{ font-size: clamp(22px,3.4vw,28px); font-weight:700; }
+  .section-head p{ color: var(--ink-soft); margin-top:10px; font-size: 15px; }
+
+  /* ---------- intro step + hub ---------- */
+  .kick-card{
+    background: var(--surface); border:1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 26px 28px; display:flex; gap:18px; align-items:flex-start;
+    max-width: 640px; margin: 0 auto;
+  }
+  .kick-num{
+    flex: none; width:38px; height:38px; border-radius:50%;
+    background: var(--pink); color:#fff; font-family:"Zen Maru Gothic",sans-serif; font-weight:700;
+    display:flex; align-items:center; justify-content:center; font-size:15px;
+  }
+  .kick-card p{ margin:0; }
+  .kick-card .who{ font-size:12.5px; font-weight:700; color:var(--pink-ink); margin-bottom:4px; display:block; }
+
+  .flow-arrow{ display:flex; justify-content:center; margin: 6px 0; color: var(--ink-soft); }
+  .flow-arrow svg{ width:22px; height:34px; }
+
+  .hub{
+    max-width: 560px; margin: 0 auto; text-align:center;
+    background: linear-gradient(165deg, var(--lav-bg-strong), var(--pink-bg-strong));
+    border-radius: 24px; padding: 26px 28px; box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .hub .hub-eyebrow{ font-size:12.5px; font-weight:700; letter-spacing:.08em; color: var(--ink-soft); }
+  .hub h3{ font-size: 21px; font-weight:900; margin-top:6px; }
+  .hub p.note{ font-size: 13.5px; color: var(--ink-soft); margin: 10px 0 0; }
+  .cta-btn{
+    display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+    background: var(--pink); color:#fff; font-weight:700; font-size:15px;
+    padding: 13px 30px; border-radius:999px; text-decoration:none;
+    box-shadow: var(--shadow);
+  }
+  .cta-btn:hover{ filter:brightness(0.96); }
+  .hub .split-note{
+    margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:13px;
+  }
+  .hub .split-note span{
+    background: var(--surface); border-radius:999px; padding:5px 13px; border:1px solid var(--line);
+  }
+
+  .fork-label{
+    text-align:center; font-size:13px; color:var(--ink-soft); margin: 30px 0 -6px;
+    font-weight:500;
+  }
+
+  /* ---------- two lanes ---------- */
+  .lanes{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 26px; align-items:start;
+  }
+  @media (max-width: 760px){ .lanes{ grid-template-columns: 1fr; } }
+
+  .lane-head{
+    display:flex; align-items:center; gap:10px; margin-bottom: 18px;
+    padding: 12px 16px; border-radius: 14px;
+  }
+  .lane-head .ico{
+    width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-size:16px; flex:none;
+  }
+  .lane-head h3{ font-size:16.5px; font-weight:700; }
+  .lane-head small{ display:block; font-size:11.5px; color: var(--ink-soft); font-weight:500; margin-top:2px; }
+
+  .lane.friend .lane-head{ background: var(--lav-bg); }
+  .lane.friend .lane-head .ico{ background: var(--lav-bg-strong); }
+  .lane.you .lane-head{ background: var(--pink-bg); }
+  .lane.you .lane-head .ico{ background: var(--pink-bg-strong); }
+
+  .steps{ display:flex; flex-direction:column; }
+  .step{
+    background: var(--surface); border:1px solid var(--line); border-radius:16px;
+    box-shadow: var(--shadow); padding: 16px 18px; font-size: 14.5px; position:relative;
+  }
+  .step + .step{ margin-top: 22px; }
+  .step + .step::before{
+    content:""; position:absolute; left:50%; top:-22px; width:2px; height:22px;
+    background: var(--line); transform: translateX(-1px);
+  }
+  .step .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:22px; height:22px; border-radius:50%; font-size:12px; font-weight:700;
+    color:#fff; margin-right:8px; font-family:"Zen Maru Gothic",sans-serif;
+  }
+  .lane.friend .step .num{ background: var(--lav); }
+  .lane.you .step .num{ background: var(--pink); }
+  .step strong{ font-weight:700; }
+  .step .sub{ display:block; margin-top:6px; color: var(--ink-soft); font-size: 13px; }
+
+  /* decision diamond */
+  .decision{
+    margin: 22px auto 0; width: 168px; aspect-ratio: 1.5/1;
+    display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .decision::before{
+    content:""; position:absolute; inset:0; border-radius: 18px;
+    transform: rotate(45deg); box-shadow: var(--shadow);
+  }
+  .lane.friend .decision::before{ background: var(--lav-bg-strong); border:1px solid var(--line); }
+  .lane.you .decision::before{ background: var(--pink-bg-strong); border:1px solid var(--line); }
+  .decision span{ position:relative; font-size:13px; font-weight:700; text-align:center; padding: 0 14px; line-height:1.5; }
+
+  .branches{
+    display:grid; grid-template-columns:1fr 1fr; gap: 14px; margin-top: 22px;
+  }
+  .branch{
+    border-radius:14px; padding: 13px 14px; font-size:13.5px; position:relative;
+    border:1px dashed var(--line);
+  }
+  .branch .yn{
+    display:inline-block; font-size:11px; font-weight:700; letter-spacing:.06em;
+    border-radius: 999px; padding:2px 10px; margin-bottom:8px;
+  }
+  .branch.yes .yn{ color: var(--pink-ink); background: var(--pink-bg); }
+  .branch.no .yn{ color: var(--ink-soft); background: var(--surface-2); }
+  .branch ul{ margin: 8px 0 0; padding-left: 18px; }
+  .branch li + li{ margin-top:6px; }
+  .branch .mini{ display:block; margin-top:8px; font-size:12px; color:var(--ink-soft); }
+
+  /* convergence */
+  .converge{
+    margin-top: 40px; max-width: 640px; margin-left:auto; margin-right:auto;
+    text-align:center;
+  }
+  .converge .flow-arrow{ margin-bottom: 4px; }
+  .success{
+    background: linear-gradient(165deg, var(--pink-bg-strong), var(--yellow-bg));
+    border-radius: 24px; padding: 30px 30px; box-shadow: var(--shadow); border:1px solid var(--line);
+  }
+  .success .cap{ font-size:12.5px; font-weight:700; letter-spacing:.1em; color: var(--pink-ink); }
+  .success h3{ font-size:22px; font-weight:900; margin-top:8px; }
+  .success p{ margin: 10px 0 0; color: var(--ink-soft); font-size:14.5px; }
+
+  /* ---------- benefits ---------- */
+  .benefits{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  @media (max-width:700px){ .benefits{ grid-template-columns:1fr; } }
+  .benefit-card{
+    background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+    border:1px solid var(--line); padding: 26px 26px 24px; overflow:hidden; position:relative;
+  }
+  .benefit-card::before{ content:""; position:absolute; top:0; left:0; right:0; height:5px; }
+  .benefit-card.you::before{ background: var(--pink); }
+  .benefit-card.friend::before{ background: var(--lav); }
+  .benefit-card .who{
+    font-size:12px; font-weight:700; letter-spacing:.08em; padding:4px 12px; border-radius:999px; display:inline-block;
+  }
+  .benefit-card.you .who{ background: var(--pink-bg); color: var(--pink-ink); }
+  .benefit-card.friend .who{ background: var(--lav-bg); color: var(--lav-ink); }
+  .benefit-card h3{ font-size:19px; font-weight:700; margin-top:12px; }
+  .benefit-card .headline{
+    font-family:"Zen Maru Gothic",sans-serif; font-weight:900; font-size:26px; margin-top:14px; color:var(--ink);
+  }
+  .benefit-card .headline small{ font-size:14px; font-weight:500; color:var(--ink-soft); margin-left:4px; }
+  .benefit-card ul{ margin: 16px 0 0; padding:0; list-style:none; }
+  .benefit-card li{
+    display:flex; gap:10px; padding: 10px 0; border-top: 1px solid var(--line); font-size:14px;
+  }
+  .benefit-card li:first-of-type{ border-top:none; padding-top:14px; }
+  .benefit-card li .mark{ flex:none; margin-top:2px; }
+  .benefit-card.you li .mark{ color: var(--pink); }
+  .benefit-card.friend li .mark{ color: var(--lav); }
+
+  .bonus-note{
+    text-align:center; max-width: 560px; margin: 28px auto 0;
+    background: var(--pink-bg); color: var(--pink-ink); font-size: 14px; font-weight:500;
+    border-radius: 14px; padding: 14px 22px;
+  }
+
+  /* ---------- faq ---------- */
+  .faq{ display:flex; flex-direction:column; gap:14px; max-width: 700px; margin:0 auto; }
+  .qa{
+    background: var(--surface); border:1px solid var(--line); border-radius:16px; padding: 18px 20px;
+  }
+  .qa .q{ display:flex; gap:10px; font-weight:700; font-size:15px; align-items:baseline; }
+  .qa .q .qmark{
+    flex:none; width:24px; height:24px; border-radius:50%; background: var(--yellow-bg); color: var(--yellow-ink);
+    display:flex; align-items:center; justify-content:center; font-size:13px; font-family:"Zen Maru Gothic",sans-serif;
+  }
+  .qa .a{ margin: 8px 0 0 34px; color: var(--ink-soft); font-size:14px; }
+  .qa .a a{ color: var(--pink-ink); text-decoration: underline; }
+
+  .links-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+  .link-pill{
+    display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500;
+    background: var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:8px 15px;
+    text-decoration:none; color: var(--ink);
+  }
+  .link-pill:hover{ border-color: var(--pink); }
+
+  /* ---------- footer note ---------- */
+  .footnote{
+    max-width: 640px; margin: 56px auto 0; text-align:center;
+    background: var(--surface-2); border:1px solid var(--line); border-radius:18px; padding: 22px 26px;
+  }
+  .footnote p{ margin:0; font-size:13.5px; color: var(--ink-soft); }
+  .footnote strong{ color:var(--ink); }
+
+  footer{
+    max-width:640px; margin: 40px auto 0; text-align:center; font-size:12px; color: var(--ink-soft);
+  }
+</style>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Re:che ThanksProgram</span>
+    <h1>ご紹介から<em>ご入会・特典</em>までの流れ</h1>
+    <p class="lede">お友達をご案内してくださる方へ。声かけから公式LINEのご登録、面談、ご入会、キャッシュバックまでの流れを1枚にまとめました。</p>
+    <div class="hero-tags">
+      <span class="tag">🍀 紹介するあなた</span>
+      <span class="tag">🍀 紹介されたお友達</span>
+      <span class="tag">🍀 共通のご案内</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section>
+    <div class="section-head">
+      <span class="kicker">STEP 1</span>
+      <h2>まずはお声かけから</h2>
+    </div>
+
+    <div class="kick-card">
+      <span class="kick-num">1</span>
+      <p><span class="who">紹介するあなた</span>Re:cheっていう素敵な場所があるんだけど、よかったら一緒にやってみない？と聞いてみてください✨️お友だちが「ぜひ入りたい！」「もう少し詳しく話を聞きたいな！」と興味を持ってくれたら、今回ご案内している<strong>Re:cheThanksProgram公式LINE</strong>へお友達もご登録をお願いします！</p>
+    </div>
+
+    <div class="flow-arrow" aria-hidden="true">
+      <svg viewBox="0 0 22 34"><path d="M11 1 V27 M3 20 L11 30 L19 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+
+    <div class="hub">
+      <span class="hub-eyebrow">SHARED STEP・共通のご案内</span>
+      <h3>💬 Re:cheThanksProgram公式LINEにご登録</h3>
+      <p class="note">紹介する方・紹介されたお友達、どちらもRe:cheThanksProgram公式LINEにご登録いただくところからスタートです。</p>
+      <a class="cta-btn" href="https://saeki-web.github.io/Reche_ThanksProgram/Thanks_line" target="_blank" rel="noopener">💬 公式LINEに登録する</a>
+      <div class="split-note">
+        <span>すぐ支払って始めたい方 → お支払いのご案内をします</span>
+        <span>面談ご希望の方 → お知らせください（面談する？ Yes / No）</span>
+      </div>
+    </div>
+
+    <p class="fork-label">ここから先は、紹介する方・紹介されたお友達で流れが分かれます ↓</p>
+  </section>
+
+  <section aria-label="その後の流れ（2レーン）">
+    <div class="lanes">
+
+      <!-- FRIEND LANE -->
+      <div class="lane friend">
+        <div class="lane-head">
+          <span class="ico">🌱</span>
+          <div>
+            <h3>紹介されたお友達</h3>
+            <small>興味がある・始めたい・詳しく聞きたい方</small>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span class="num">1</span><strong>Re:cheThanksProgram公式LINEにご登録</strong>
+            <span class="sub">まずはRe:cheThanksProgram公式LINEにご登録ください。</span>
+          </div>
+          <div class="step">
+            <span class="num">2</span><strong>登録確認後、担当からご案内</strong>
+            <span class="sub">ご登録が確認でき次第、担当よりご連絡いたします。</span>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span>面談を<br>希望しますか？</span>
+        </div>
+
+        <div class="branches">
+          <div class="branch yes">
+            <span class="yn">YES</span>
+            <ul>
+              <li>対応可能な日時を<strong>4つまで</strong>お知らせください</li>
+              <li>調整でき次第、<strong>Zoomリンク</strong>をお送りします</li>
+              <li>お時間になりましたらご入室ください</li>
+            </ul>
+            <span class="mini">紹介者さまと一緒でも、お一人でも大丈夫です☺️</span>
+          </div>
+          <div class="branch no">
+            <span class="yn">NO</span>
+            <ul>
+              <li>面談なしで、そのまま担当のご案内へ</li>
+              <li>ご不明点はいつでもLINEでご相談ください</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- YOU LANE -->
+      <div class="lane you">
+        <div class="lane-head">
+          <span class="ico">✨</span>
+          <div>
+            <h3>紹介するあなた</h3>
+            <small>Re:che生・ご紹介いただく方</small>
+          </div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span class="num">1</span><strong>お友達が登録したら、あとはお任せください☺️</strong>
+            <span class="sub">基本的にお友達が公式LINEへご登録くださったら、担当が引き継ぎます。</span>
+          </div>
+          <div class="step">
+            <span class="num">2</span><strong>面談ご希望があればお知らせください</strong>
+            <span class="sub">お友達との面談に同席することも可能です。ご希望であればお知らせください。</span>
+          </div>
+        </div>
+
+        <div class="decision">
+          <span>面談<br>しますか？</span>
+        </div>
+
+        <div class="branches">
+          <div class="branch yes">
+            <span class="yn">YES</span>
+            <ul>
+              <li>お友達の面談にご一緒に参加できます</li>
+              <li>日程はお友達と合わせて調整します</li>
+            </ul>
+          </div>
+          <div class="branch no">
+            <span class="yn">NO</span>
+            <ul>
+              <li>すぐお支払いして始めたい場合は<strong>お支払いのご案内</strong>を致します</li>
+              <li>それ以外は担当にお任せでOKです</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="converge">
+      <div class="flow-arrow" aria-hidden="true">
+        <svg viewBox="0 0 22 34"><path d="M11 1 V27 M3 20 L11 30 L19 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="success">
+        <h3>🎉 無事ご入会</h3>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="kicker">BENEFITS</span>
+      <h2>ご入会で受け取れる特典</h2>
+      <p>紹介するあなたと、紹介されたお友達、それぞれに特典があります。</p>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit-card you">
+        <span class="who">紹介するあなた（Re:che生）</span>
+        <h3>無事ご入会されたら</h3>
+        <div class="headline">現金 5万円<small>キャッシュバック</small></div>
+        <ul>
+          <li><span class="mark">◎</span>ご入会が確認でき次第、<strong>管理部よりご連絡</strong>いたします</li>
+          <li><span class="mark">◎</span>特別な手続きは不要、案内をお待ちください</li>
+        </ul>
+      </div>
+
+      <div class="benefit-card friend">
+        <span class="who">紹介されたお友達</span>
+        <h3>入会特典 4つ</h3>
+        <div class="headline">大幅お値引き<small>＋3つの特典</small></div>
+        <ul>
+          <li><span class="mark">◎</span>Re:che定価より<strong>大幅お値引き</strong></li>
+          <li><span class="mark">◎</span>すぐに出品できる<strong>スターターパック</strong></li>
+          <li><span class="mark">◎</span><strong>1万円分のAmazonギフト券</strong>（入金確認後、フォームをお送りします）</li>
+          <li><span class="mark">◎</span><strong>1ヶ月の集中フォローアップグルコン</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="bonus-note">✨ ご入会直後からブーストをかけて頑張れる、とっておきのチャンスがあります！（詳しくは面談でご説明させていただきます）</p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="kicker">FAQ</span>
+      <h2>よくいただくご質問</h2>
+    </div>
+
+    <div class="faq">
+      <div class="qa">
+        <div class="q"><span class="qmark">Q</span>入会金はいくらですか？</div>
+        <div class="a">直接公式LINEへお問合せください☺️</div>
+      </div>
+      <div class="qa">
+        <div class="q"><span class="qmark">Q</span>お支払い方法は？</div>
+        <div class="a">銀行振り込み、クレジットカード、振込＋現金、カード複数枚、ローンなど！柔軟に対応しております✨️頑張りたい！というお気持ちがある方を全力でサポート致します。</div>
+      </div>
+      <div class="qa">
+        <div class="q"><span class="qmark">Q</span>パンフレットはありますか？</div>
+        <div class="a">
+          はい、下記よりご覧いただけます☺️
+          <div class="links-row">
+            <a class="link-pill" href="https://merone.jp/" target="_blank" rel="noopener">🍀 公式HP</a>
+            <a class="link-pill" href="https://note.com/manmorni/n/nb23619c625fc" target="_blank" rel="noopener">🍀 パンフレット</a>
+            <a class="link-pill" href="https://prtimes.jp/main/html/rd/p/000000020.000076741.html" target="_blank" rel="noopener">🍀 BOOKOFFさんとの業務提携</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footnote">
+    <p>気になることがありましたら、どんな小さなことでも良いので公式LINEへお気軽にご相談くださいね！☺️</p>
+  </div>
+
+  <footer>Re:che ThanksProgram ご案内シート</footer>
+</div>
