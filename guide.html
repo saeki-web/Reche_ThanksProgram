@@ -40,7 +40,7 @@
     color: var(--ink);
     font-family: "Noto Sans JP", "Yu Gothic", "游ゴシック体", "Hiragino Sans", sans-serif;
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 18px;
     -webkit-font-smoothing: antialiased;
   }
   .wrap{ max-width: 980px; margin: 0 auto; padding: 0 20px 80px; }
@@ -69,11 +69,11 @@
   .hero-inner{ max-width: 720px; margin: 0 auto; }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
-    font-size: 16px; letter-spacing: .14em; font-weight:700;
+    font-size: 18px; letter-spacing: .14em; font-weight:700;
     color: var(--pink-ink); background: var(--pink-bg);
     padding: 10px 20px; border-radius: 999px; margin-bottom: 22px;
   }
-  .eyebrow::before{ content:"🍀"; font-size:13px; }
+  .eyebrow::before{ content:"🍀"; font-size:18px; }
   h1{ font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: var(--ink); }
   h1 em{
     font-style: normal;
@@ -81,13 +81,13 @@
   }
   .lede{
     margin: 18px auto 0; max-width: 520px;
-    color: var(--ink-soft); font-size: 16px;
+    color: var(--ink-soft); font-size: 14px;
   }
   .hero-tags{
     margin-top: 28px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
   }
   .tag{
-    font-size:16px; font-weight:500; padding: 8px 18px; border-radius:999px;
+    font-size:17px; font-weight:500; padding: 8px 18px; border-radius:999px;
     border:1px solid var(--line); background: var(--surface); color: var(--ink-soft);
   }
 
@@ -110,10 +110,10 @@
   .kick-num{
     flex: none; width:38px; height:38px; border-radius:50%;
     background: var(--pink); color:#fff; font-family:"Zen Maru Gothic",sans-serif; font-weight:700;
-    display:flex; align-items:center; justify-content:center; font-size:15px;
+    display:flex; align-items:center; justify-content:center; font-size:18px;
   }
   .kick-card p{ margin:0; }
-  .kick-card .who{ font-size:16px; font-weight:700; color:var(--pink-ink); margin-bottom:4px; display:block; }
+  .kick-card .who{ font-size:17px; font-weight:700; color:var(--pink-ink); margin-bottom:4px; display:block; }
 
   .flow-arrow{ display:flex; justify-content:center; margin: 6px 0; color: var(--ink-soft); }
   .flow-arrow svg{ width:22px; height:34px; }
@@ -124,25 +124,25 @@
     border-radius: 24px; padding: 26px 28px; box-shadow: var(--shadow);
     border: 1px solid var(--line);
   }
-  .hub .hub-eyebrow{ font-size:16px; font-weight:700; letter-spacing:.08em; color: var(--ink-soft); }
+  .hub .hub-eyebrow{ font-size:17px; font-weight:700; letter-spacing:.08em; color: var(--ink-soft); }
   .hub h3{ font-size: 21px; font-weight:900; margin-top:6px; }
   .hub p.note{ font-size: 16px; color: var(--ink-soft); margin: 10px 0 0; }
   .cta-btn{
     display:inline-flex; align-items:center; gap:8px; margin-top:18px;
-    background: var(--pink); color:#fff; font-weight:700; font-size:16px;
+    background: var(--pink); color:#fff; font-weight:700; font-size:17px;
     padding: 14px 32px; border-radius:999px; text-decoration:none;
     box-shadow: var(--shadow);
   }
   .cta-btn:hover{ filter:brightness(0.96); }
   .hub .split-note{
-    margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:16px;
+    margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:17px;
   }
   .hub .split-note span{
     background: var(--surface); border-radius:999px; padding:5px 13px; border:1px solid var(--line);
   }
 
   .fork-label{
-    text-align:center; font-size:16px; color:var(--ink-soft); margin: 30px 0 -6px;
+    text-align:center; font-size:17px; color:var(--ink-soft); margin: 30px 0 -6px;
     font-weight:500;
   }
 
@@ -157,10 +157,10 @@
   }
   .lane-head .ico{
     width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    font-size:16px; flex:none;
+    font-size:17px; flex:none;
   }
-  .lane-head h3{ font-size:18px; font-weight:700; }
-  .lane-head small{ display:block; font-size:16px; color: var(--ink-soft); font-weight:500; margin-top:2px; }
+  .lane-head h3{ font-size:24px; font-weight:700; }
+  .lane-head small{ display:block; font-size:17px; color: var(--ink-soft); font-weight:500; margin-top:2px; }
 
   .lane.friend .lane-head{ background: var(--lav-bg); }
   .lane.friend .lane-head .ico{ background: var(--lav-bg-strong); }
@@ -179,7 +179,7 @@
   }
   .step .num{
     display:inline-flex; align-items:center; justify-content:center;
-    width:26px; height:26px; border-radius:50%; font-size:14px; font-weight:700;
+    width:26px; height:26px; border-radius:50%; font-size:18px; font-weight:700;
     color:#fff; margin-right:10px; font-family:"Zen Maru Gothic",sans-serif;
   }
   .lane.friend .step .num{ background: var(--lav); }
@@ -198,24 +198,24 @@
   }
   .lane.friend .decision::before{ background: var(--lav-bg-strong); border:1px solid var(--line); }
   .lane.you .decision::before{ background: var(--pink-bg-strong); border:1px solid var(--line); }
-  .decision span{ position:relative; font-size:16px; font-weight:700; text-align:center; padding: 0 14px; line-height:1.5; }
+  .decision span{ position:relative; font-size:17px; font-weight:700; text-align:center; padding: 0 14px; line-height:1.5; }
 
   .branches{
     display:grid; grid-template-columns:1fr; gap: 14px; margin-top: 22px;
   }
   .branch{
-    border-radius:14px; padding: 16px 18px; font-size:16px; position:relative;
+    border-radius:14px; padding: 16px 18px; font-size:17px; position:relative;
     border:1px dashed var(--line);
   }
   .branch .yn{
-    display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em;
+    display:inline-block; font-size:18px; font-weight:700; letter-spacing:.06em;
     border-radius: 999px; padding:4px 14px; margin-bottom:8px;
   }
   .branch.yes .yn{ color: var(--pink-ink); background: var(--pink-bg); }
   .branch.no .yn{ color: var(--ink-soft); background: var(--surface-2); }
   .branch ul{ margin: 8px 0 0; padding-left: 18px; }
   .branch li + li{ margin-top:6px; }
-  .branch .mini{ display:block; margin-top:8px; font-size:16px; color:var(--ink-soft); }
+  .branch .mini{ display:block; margin-top:8px; font-size:17px; color:var(--ink-soft); }
 
   /* convergence */
   .converge{
@@ -227,9 +227,9 @@
     background: linear-gradient(165deg, var(--pink-bg-strong), var(--yellow-bg));
     border-radius: 24px; padding: 30px 30px; box-shadow: var(--shadow); border:1px solid var(--line);
   }
-  .success .cap{ font-size:16px; font-weight:700; letter-spacing:.1em; color: var(--pink-ink); }
-  .success h3{ font-size:24px; font-weight:900; margin-top:8px; }
-  .success p{ margin: 10px 0 0; color: var(--ink-soft); font-size:16px; }
+  .success .cap{ font-size:17px; font-weight:700; letter-spacing:.1em; color: var(--pink-ink); }
+  .success h3{ font-size:28px; font-weight:900; margin-top:8px; }
+  .success p{ margin: 10px 0 0; color: var(--ink-soft); font-size:17px; }
 
   /* ---------- benefits ---------- */
   .benefits{ display:grid; grid-template-columns:1fr; gap:22px; }
@@ -241,18 +241,18 @@
   .benefit-card.you::before{ background: var(--pink); }
   .benefit-card.friend::before{ background: var(--lav); }
   .benefit-card .who{
-    font-size:16px; font-weight:700; letter-spacing:.08em; padding:6px 16px; border-radius:999px; display:inline-block;
+    font-size:17px; font-weight:700; letter-spacing:.08em; padding:6px 16px; border-radius:999px; display:inline-block;
   }
   .benefit-card.you .who{ background: var(--pink-bg); color: var(--pink-ink); }
   .benefit-card.friend .who{ background: var(--lav-bg); color: var(--lav-ink); }
-  .benefit-card h3{ font-size:20px; font-weight:700; margin-top:12px; }
+  .benefit-card h3{ font-size:24px; font-weight:700; margin-top:12px; }
   .benefit-card .headline{
-    font-family:"Zen Maru Gothic",sans-serif; font-weight:900; font-size:28px; margin-top:14px; color:var(--ink);
+    font-family:"Zen Maru Gothic",sans-serif; font-weight:900; font-size:32px; margin-top:14px; color:var(--ink);
   }
-  .benefit-card .headline small{ font-size:16px; font-weight:500; color:var(--ink-soft); margin-left:4px; }
+  .benefit-card .headline small{ font-size:17px; font-weight:500; color:var(--ink-soft); margin-left:4px; }
   .benefit-card ul{ margin: 16px 0 0; padding:0; list-style:none; }
   .benefit-card li{
-    display:flex; gap:10px; padding: 12px 0; border-top: 1px solid var(--line); font-size:16px;
+    display:flex; gap:10px; padding: 12px 0; border-top: 1px solid var(--line); font-size:17px;
   }
   .benefit-card li:first-of-type{ border-top:none; padding-top:14px; }
   .benefit-card li .mark{ flex:none; margin-top:2px; }
@@ -270,17 +270,17 @@
   .qa{
     background: var(--surface); border:1px solid var(--line); border-radius:16px; padding: 20px 22px;
   }
-  .qa .q{ display:flex; gap:10px; font-weight:700; font-size:16px; align-items:baseline; }
+  .qa .q{ display:flex; gap:10px; font-weight:700; font-size:17px; align-items:baseline; }
   .qa .q .qmark{
     flex:none; width:26px; height:26px; border-radius:50%; background: var(--yellow-bg); color: var(--yellow-ink);
-    display:flex; align-items:center; justify-content:center; font-size:14px; font-family:"Zen Maru Gothic",sans-serif;
+    display:flex; align-items:center; justify-content:center; font-size:18px; font-family:"Zen Maru Gothic",sans-serif;
   }
-  .qa .a{ margin: 8px 0 0 36px; color: var(--ink-soft); font-size:16px; }
+  .qa .a{ margin: 8px 0 0 36px; color: var(--ink-soft); font-size:17px; }
   .qa .a a{ color: var(--pink-ink); text-decoration: underline; }
 
   .links-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
   .link-pill{
-    display:inline-flex; align-items:center; gap:6px; font-size:16px; font-weight:500;
+    display:inline-flex; align-items:center; gap:6px; font-size:17px; font-weight:500;
     background: var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:12px 20px;
     text-decoration:none; color: var(--ink);
   }
@@ -291,11 +291,11 @@
     max-width: 640px; margin: 56px auto 0; text-align:center;
     background: var(--surface-2); border:1px solid var(--line); border-radius:18px; padding: 24px 28px;
   }
-  .footnote p{ margin:0; font-size:16px; color: var(--ink-soft); }
+  .footnote p{ margin:0; font-size:17px; color: var(--ink-soft); }
   .footnote strong{ color:var(--ink); }
 
   footer{
-    max-width:640px; margin: 40px auto 0; text-align:center; font-size:16px; color: var(--ink-soft);
+    max-width:640px; margin: 40px auto 0; text-align:center; font-size:17px; color: var(--ink-soft);
   }
 
   /* ---------- mobile responsive improvements ---------- */
