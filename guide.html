@@ -69,9 +69,9 @@
   .hero-inner{ max-width: 720px; margin: 0 auto; }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
-    font-size: 13.5px; letter-spacing: .14em; font-weight:700;
+    font-size: 16px; letter-spacing: .14em; font-weight:700;
     color: var(--pink-ink); background: var(--pink-bg);
-    padding: 8px 18px; border-radius: 999px; margin-bottom: 22px;
+    padding: 10px 20px; border-radius: 999px; margin-bottom: 22px;
   }
   .eyebrow::before{ content:"🍀"; font-size:13px; }
   h1{ font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: var(--ink); }
@@ -87,7 +87,7 @@
     margin-top: 28px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
   }
   .tag{
-    font-size:14px; font-weight:500; padding: 7px 16px; border-radius:999px;
+    font-size:16px; font-weight:500; padding: 8px 18px; border-radius:999px;
     border:1px solid var(--line); background: var(--surface); color: var(--ink-soft);
   }
 
@@ -95,11 +95,11 @@
   section{ padding-top: 56px; }
   .section-head{ text-align:center; max-width: 600px; margin: 0 auto 32px; }
   .section-head .kicker{
-    display:block; font-size: 13.5px; font-weight:700; letter-spacing:.14em;
+    display:block; font-size: 16px; font-weight:700; letter-spacing:.14em;
     color: var(--lav-ink); margin-bottom: 10px;
   }
   .section-head h2{ font-size: clamp(22px,3.4vw,28px); font-weight:700; }
-  .section-head p{ color: var(--ink-soft); margin-top:10px; font-size: 15px; }
+  .section-head p{ color: var(--ink-soft); margin-top:10px; font-size: 16px; }
 
   /* ---------- intro step + hub ---------- */
   .kick-card{
@@ -113,7 +113,7 @@
     display:flex; align-items:center; justify-content:center; font-size:15px;
   }
   .kick-card p{ margin:0; }
-  .kick-card .who{ font-size:13.5px; font-weight:700; color:var(--pink-ink); margin-bottom:4px; display:block; }
+  .kick-card .who{ font-size:16px; font-weight:700; color:var(--pink-ink); margin-bottom:4px; display:block; }
 
   .flow-arrow{ display:flex; justify-content:center; margin: 6px 0; color: var(--ink-soft); }
   .flow-arrow svg{ width:22px; height:34px; }
@@ -124,33 +124,32 @@
     border-radius: 24px; padding: 26px 28px; box-shadow: var(--shadow);
     border: 1px solid var(--line);
   }
-  .hub .hub-eyebrow{ font-size:13.5px; font-weight:700; letter-spacing:.08em; color: var(--ink-soft); }
+  .hub .hub-eyebrow{ font-size:16px; font-weight:700; letter-spacing:.08em; color: var(--ink-soft); }
   .hub h3{ font-size: 21px; font-weight:900; margin-top:6px; }
-  .hub p.note{ font-size: 13.5px; color: var(--ink-soft); margin: 10px 0 0; }
+  .hub p.note{ font-size: 16px; color: var(--ink-soft); margin: 10px 0 0; }
   .cta-btn{
     display:inline-flex; align-items:center; gap:8px; margin-top:18px;
-    background: var(--pink); color:#fff; font-weight:700; font-size:15px;
-    padding: 13px 30px; border-radius:999px; text-decoration:none;
+    background: var(--pink); color:#fff; font-weight:700; font-size:16px;
+    padding: 14px 32px; border-radius:999px; text-decoration:none;
     box-shadow: var(--shadow);
   }
   .cta-btn:hover{ filter:brightness(0.96); }
   .hub .split-note{
-    margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:14px;
+    margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap; font-size:16px;
   }
   .hub .split-note span{
     background: var(--surface); border-radius:999px; padding:5px 13px; border:1px solid var(--line);
   }
 
   .fork-label{
-    text-align:center; font-size:14px; color:var(--ink-soft); margin: 30px 0 -6px;
+    text-align:center; font-size:16px; color:var(--ink-soft); margin: 30px 0 -6px;
     font-weight:500;
   }
 
   /* ---------- two lanes ---------- */
   .lanes{
-    display:grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 26px; align-items:start;
+    display:grid; grid-template-columns: 1fr; gap: 28px; margin-top: 26px; align-items:start;
   }
-  @media (max-width: 760px){ .lanes{ grid-template-columns: 1fr; } }
 
   .lane-head{
     display:flex; align-items:center; gap:10px; margin-bottom: 18px;
@@ -160,8 +159,8 @@
     width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
     font-size:16px; flex:none;
   }
-  .lane-head h3{ font-size:16.5px; font-weight:700; }
-  .lane-head small{ display:block; font-size:12.5px; color: var(--ink-soft); font-weight:500; margin-top:2px; }
+  .lane-head h3{ font-size:18px; font-weight:700; }
+  .lane-head small{ display:block; font-size:16px; color: var(--ink-soft); font-weight:500; margin-top:2px; }
 
   .lane.friend .lane-head{ background: var(--lav-bg); }
   .lane.friend .lane-head .ico{ background: var(--lav-bg-strong); }
@@ -171,7 +170,7 @@
   .steps{ display:flex; flex-direction:column; }
   .step{
     background: var(--surface); border:1px solid var(--line); border-radius:16px;
-    box-shadow: var(--shadow); padding: 16px 18px; font-size: 14.5px; position:relative;
+    box-shadow: var(--shadow); padding: 18px 20px; font-size: 16px; position:relative;
   }
   .step + .step{ margin-top: 22px; }
   .step + .step::before{
@@ -180,13 +179,13 @@
   }
   .step .num{
     display:inline-flex; align-items:center; justify-content:center;
-    width:22px; height:22px; border-radius:50%; font-size:12px; font-weight:700;
-    color:#fff; margin-right:8px; font-family:"Zen Maru Gothic",sans-serif;
+    width:26px; height:26px; border-radius:50%; font-size:14px; font-weight:700;
+    color:#fff; margin-right:10px; font-family:"Zen Maru Gothic",sans-serif;
   }
   .lane.friend .step .num{ background: var(--lav); }
   .lane.you .step .num{ background: var(--pink); }
   .step strong{ font-weight:700; }
-  .step .sub{ display:block; margin-top:6px; color: var(--ink-soft); font-size: 13px; }
+  .step .sub{ display:block; margin-top:6px; color: var(--ink-soft); font-size: 16px; }
 
   /* decision diamond */
   .decision{
@@ -199,24 +198,24 @@
   }
   .lane.friend .decision::before{ background: var(--lav-bg-strong); border:1px solid var(--line); }
   .lane.you .decision::before{ background: var(--pink-bg-strong); border:1px solid var(--line); }
-  .decision span{ position:relative; font-size:14px; font-weight:700; text-align:center; padding: 0 14px; line-height:1.5; }
+  .decision span{ position:relative; font-size:16px; font-weight:700; text-align:center; padding: 0 14px; line-height:1.5; }
 
   .branches{
-    display:grid; grid-template-columns:1fr 1fr; gap: 14px; margin-top: 22px;
+    display:grid; grid-template-columns:1fr; gap: 14px; margin-top: 22px;
   }
   .branch{
-    border-radius:14px; padding: 14px 16px; font-size:14.5px; position:relative;
+    border-radius:14px; padding: 16px 18px; font-size:16px; position:relative;
     border:1px dashed var(--line);
   }
   .branch .yn{
-    display:inline-block; font-size:12px; font-weight:700; letter-spacing:.06em;
-    border-radius: 999px; padding:3px 12px; margin-bottom:8px;
+    display:inline-block; font-size:14px; font-weight:700; letter-spacing:.06em;
+    border-radius: 999px; padding:4px 14px; margin-bottom:8px;
   }
   .branch.yes .yn{ color: var(--pink-ink); background: var(--pink-bg); }
   .branch.no .yn{ color: var(--ink-soft); background: var(--surface-2); }
   .branch ul{ margin: 8px 0 0; padding-left: 18px; }
   .branch li + li{ margin-top:6px; }
-  .branch .mini{ display:block; margin-top:8px; font-size:13px; color:var(--ink-soft); }
+  .branch .mini{ display:block; margin-top:8px; font-size:16px; color:var(--ink-soft); }
 
   /* convergence */
   .converge{
@@ -228,13 +227,12 @@
     background: linear-gradient(165deg, var(--pink-bg-strong), var(--yellow-bg));
     border-radius: 24px; padding: 30px 30px; box-shadow: var(--shadow); border:1px solid var(--line);
   }
-  .success .cap{ font-size:13.5px; font-weight:700; letter-spacing:.1em; color: var(--pink-ink); }
-  .success h3{ font-size:22px; font-weight:900; margin-top:8px; }
-  .success p{ margin: 10px 0 0; color: var(--ink-soft); font-size:14.5px; }
+  .success .cap{ font-size:16px; font-weight:700; letter-spacing:.1em; color: var(--pink-ink); }
+  .success h3{ font-size:24px; font-weight:900; margin-top:8px; }
+  .success p{ margin: 10px 0 0; color: var(--ink-soft); font-size:16px; }
 
   /* ---------- benefits ---------- */
-  .benefits{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-  @media (max-width:700px){ .benefits{ grid-template-columns:1fr; } }
+  .benefits{ display:grid; grid-template-columns:1fr; gap:22px; }
   .benefit-card{
     background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
     border:1px solid var(--line); padding: 26px 26px 24px; overflow:hidden; position:relative;
@@ -243,18 +241,18 @@
   .benefit-card.you::before{ background: var(--pink); }
   .benefit-card.friend::before{ background: var(--lav); }
   .benefit-card .who{
-    font-size:13px; font-weight:700; letter-spacing:.08em; padding:5px 14px; border-radius:999px; display:inline-block;
+    font-size:16px; font-weight:700; letter-spacing:.08em; padding:6px 16px; border-radius:999px; display:inline-block;
   }
   .benefit-card.you .who{ background: var(--pink-bg); color: var(--pink-ink); }
   .benefit-card.friend .who{ background: var(--lav-bg); color: var(--lav-ink); }
-  .benefit-card h3{ font-size:19px; font-weight:700; margin-top:12px; }
+  .benefit-card h3{ font-size:20px; font-weight:700; margin-top:12px; }
   .benefit-card .headline{
-    font-family:"Zen Maru Gothic",sans-serif; font-weight:900; font-size:26px; margin-top:14px; color:var(--ink);
+    font-family:"Zen Maru Gothic",sans-serif; font-weight:900; font-size:28px; margin-top:14px; color:var(--ink);
   }
-  .benefit-card .headline small{ font-size:14px; font-weight:500; color:var(--ink-soft); margin-left:4px; }
+  .benefit-card .headline small{ font-size:16px; font-weight:500; color:var(--ink-soft); margin-left:4px; }
   .benefit-card ul{ margin: 16px 0 0; padding:0; list-style:none; }
   .benefit-card li{
-    display:flex; gap:10px; padding: 10px 0; border-top: 1px solid var(--line); font-size:14px;
+    display:flex; gap:10px; padding: 12px 0; border-top: 1px solid var(--line); font-size:16px;
   }
   .benefit-card li:first-of-type{ border-top:none; padding-top:14px; }
   .benefit-card li .mark{ flex:none; margin-top:2px; }
@@ -263,27 +261,27 @@
 
   .bonus-note{
     text-align:center; max-width: 560px; margin: 28px auto 0;
-    background: var(--pink-bg); color: var(--pink-ink); font-size: 14px; font-weight:500;
-    border-radius: 14px; padding: 14px 22px;
+    background: var(--pink-bg); color: var(--pink-ink); font-size: 16px; font-weight:500;
+    border-radius: 14px; padding: 16px 24px;
   }
 
   /* ---------- faq ---------- */
   .faq{ display:flex; flex-direction:column; gap:14px; max-width: 700px; margin:0 auto; }
   .qa{
-    background: var(--surface); border:1px solid var(--line); border-radius:16px; padding: 18px 20px;
+    background: var(--surface); border:1px solid var(--line); border-radius:16px; padding: 20px 22px;
   }
-  .qa .q{ display:flex; gap:10px; font-weight:700; font-size:15px; align-items:baseline; }
+  .qa .q{ display:flex; gap:10px; font-weight:700; font-size:16px; align-items:baseline; }
   .qa .q .qmark{
-    flex:none; width:24px; height:24px; border-radius:50%; background: var(--yellow-bg); color: var(--yellow-ink);
-    display:flex; align-items:center; justify-content:center; font-size:13px; font-family:"Zen Maru Gothic",sans-serif;
+    flex:none; width:26px; height:26px; border-radius:50%; background: var(--yellow-bg); color: var(--yellow-ink);
+    display:flex; align-items:center; justify-content:center; font-size:14px; font-family:"Zen Maru Gothic",sans-serif;
   }
-  .qa .a{ margin: 8px 0 0 34px; color: var(--ink-soft); font-size:14px; }
+  .qa .a{ margin: 8px 0 0 36px; color: var(--ink-soft); font-size:16px; }
   .qa .a a{ color: var(--pink-ink); text-decoration: underline; }
 
   .links-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
   .link-pill{
-    display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:500;
-    background: var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:10px 18px;
+    display:inline-flex; align-items:center; gap:6px; font-size:16px; font-weight:500;
+    background: var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:12px 20px;
     text-decoration:none; color: var(--ink);
   }
   .link-pill:hover{ border-color: var(--pink); }
@@ -291,13 +289,13 @@
   /* ---------- footer note ---------- */
   .footnote{
     max-width: 640px; margin: 56px auto 0; text-align:center;
-    background: var(--surface-2); border:1px solid var(--line); border-radius:18px; padding: 22px 26px;
+    background: var(--surface-2); border:1px solid var(--line); border-radius:18px; padding: 24px 28px;
   }
-  .footnote p{ margin:0; font-size:13.5px; color: var(--ink-soft); }
+  .footnote p{ margin:0; font-size:16px; color: var(--ink-soft); }
   .footnote strong{ color:var(--ink); }
 
   footer{
-    max-width:640px; margin: 40px auto 0; text-align:center; font-size:13px; color: var(--ink-soft);
+    max-width:640px; margin: 40px auto 0; text-align:center; font-size:16px; color: var(--ink-soft);
   }
 
   /* ---------- mobile responsive improvements ---------- */
@@ -309,52 +307,44 @@
     .hero-tags{ gap: 8px; }
 
     .section-head{ margin-bottom: 24px; }
-    .section-head p{ font-size: 15px; }
 
     .kick-card{ padding: 20px 18px; gap: 16px; }
-    .kick-num{ width: 34px; height: 34px; font-size: 14px; }
 
     .hub{ padding: 22px 20px; }
-    .hub h3{ font-size: 18px; margin-top: 4px; }
-    .cta-btn{ font-size: 15px; padding: 14px 28px; margin-top: 16px; }
-    .hub .split-note span{ padding: 6px 14px; font-size: 13px; }
+    .hub h3{ font-size: 20px; margin-top: 4px; }
+    .cta-btn{ padding: 14px 28px; margin-top: 16px; }
+    .hub .split-note span{ padding: 8px 16px; }
 
     .lanes{ gap: 20px; margin-top: 16px; }
-    .lane-head{ padding: 10px 14px; margin-bottom: 14px; gap: 8px; }
-    .lane-head h3{ font-size: 15.5px; }
+    .lane-head{ padding: 12px 16px; margin-bottom: 14px; gap: 8px; }
 
     .steps{ gap: 0; }
-    .step{ padding: 14px 16px; font-size: 14.5px; margin-top: 18px; }
+    .step{ padding: 16px 18px; margin-top: 18px; }
     .step + .step::before{ top: -18px; height: 18px; }
-    .step .sub{ font-size: 13px; margin-top: 6px; }
 
     .decision{ width: 140px; margin: 18px auto 0; }
-    .decision span{ font-size: 13px; padding: 0 12px; }
 
-    .branches{ grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
-    .branch{ padding: 12px 14px; font-size: 13.5px; }
-    .branch .yn{ font-size: 11px; padding: 2px 10px; }
+    .branches{ gap: 12px; margin-top: 16px; }
+    .branch{ padding: 14px 16px; }
     .branch ul{ margin-top: 6px; padding-left: 16px; }
     .branch li + li{ margin-top: 4px; }
-    .branch .mini{ font-size: 12px; margin-top: 6px; }
 
-    .bonus-note{ font-size: 13px; padding: 12px 18px; margin: 24px auto 0; }
+    .bonus-note{ padding: 14px 20px; margin: 24px auto 0; }
 
     .benefit-card{ padding: 20px 18px 18px; }
-    .benefit-card h3{ font-size: 17px; margin-top: 10px; }
-    .benefit-card .headline{ font-size: 22px; margin-top: 12px; }
+    .benefit-card h3{ font-size: 19px; margin-top: 10px; }
+    .benefit-card .headline{ font-size: 26px; margin-top: 12px; }
     .benefit-card ul{ margin-top: 14px; }
-    .benefit-card li{ font-size: 13.5px; padding: 8px 0; gap: 8px; }
+    .benefit-card li{ padding: 10px 0; gap: 8px; }
 
     .faq{ gap: 12px; }
-    .qa{ padding: 16px 18px; }
-    .qa .q{ font-size: 14px; gap: 8px; }
-    .qa .a{ font-size: 13px; margin-top: 6px; margin-left: 32px; }
+    .qa{ padding: 18px 20px; }
+    .qa .q{ gap: 8px; }
+    .qa .a{ margin-top: 6px; margin-left: 34px; }
     .links-row{ gap: 8px; }
-    .link-pill{ font-size: 13px; padding: 9px 16px; }
+    .link-pill{ padding: 11px 18px; }
 
-    .footnote{ padding: 18px 20px; margin: 48px auto 0; }
-    .footnote p{ font-size: 13px; }
+    .footnote{ padding: 20px 22px; margin: 48px auto 0; }
   }
 </style>
 
